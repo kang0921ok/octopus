@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property resource="application.properties" />
+	<property resource="application-dev.properties" />
+	<property resource="application-prod.properties" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>
+				${logging.pattern.console}
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="SAVE-TO-FILE"
+		class="ch.qos.logback.core.FileAppender">
+		<file>${logging.file}</file>
+		<encoder
+			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				${logging.pattern.file}
+			</Pattern>
+		</encoder>
+	</appender>
+
+</configuration>

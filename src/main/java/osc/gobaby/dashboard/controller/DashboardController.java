@@ -16,6 +16,8 @@ public class DashboardController {
 	@ResponseBody
 	@RequestMapping("/")
 	public String root() {
+		dashboardService.doSomething();
+		
 		return "Hello World";
 	}
 	
