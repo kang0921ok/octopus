@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud;
+package osc.gobaby;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

@@ -1,12 +1,17 @@
-package osc.gobaby.statistics_cloud;
+package osc.gobaby.dashboard.controller;
 
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import osc.gobaby.dashboard.service.DashboardService;
+
 @RestController
-public class TestController {
+public class DashboardController {
+	
+	@Autowired
+	DashboardService dashboardService;
 	
 	@ResponseBody
 	@RequestMapping("/")
