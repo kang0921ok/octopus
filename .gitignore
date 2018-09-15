@@ -163,11 +163,7 @@ hs_err_pid*
 *.asp
 *.cer
 *.csr
-*.css
 *.htm
-*.html
-*.js
-*.jsp
 *.php
 *.rss
 *.xhtml
