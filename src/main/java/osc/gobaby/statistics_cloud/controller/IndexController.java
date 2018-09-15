@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class IndexController {
 
-    @ResponseBody
     @RequestMapping("/")
     public String user() {
-        return "hello world";
+        return "index";
     }
 
 }
