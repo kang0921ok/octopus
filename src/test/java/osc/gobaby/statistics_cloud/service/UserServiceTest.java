@@ -24,18 +24,72 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    public void userServiceInsertTest() {
+    public void loginTrueTest(){
         //given
         String userId = "kangtest3";
         User user = new User(userId, "kangtest3", false, 1234567);
 
         //when
-        userService.insertUser(user);
+        userService.join(user);
+        boolean actual = userService.login(user);
 
         //then
+        assertThat(actual, is(true));
+    }
+
+    @Test
+    public void loginFalseTest(){
+        //given
+        String userId = "kangtest3";
+        User user = new User(userId, "kangtest3", false, 1234567);
+
+        //when
+        userService.join(user);
+        user.setUserPwd("errorPwd");
+        boolean actual = userService.login(user);
+
+        //then
+        assertThat(actual, is(false));
+    }
+
+    @Test
+    public void joinTest() {
+        //given
+        String userId = "kangtest3";
+        User user = new User(userId, "kangtest3", false, 1234567);
+
+        //when
+        userService.join(user);
         User actual = userService.findUser(userId);
+
+        //then
         assertThat(actual.getUserId(), is(userId));
     }
 
+    @Test
+    public void joinReturnValueTest() {
+        //given
+        String userId = "kangtest3";
+        User user = new User(userId, "kangtest3", false, 1234567);
 
+        //when
+        boolean actual = userService.join(user);
+
+        //then
+        assertThat(actual, is(true));
+    }
+
+    @Test
+    public void isDuplicateTest() {
+        //given
+        String userId = "kangtest3";
+        User user = new User(userId, "kangtest3", false, 1234567);
+
+        //when
+        userService.join(user);
+        boolean actual = userService.isDuplicate(user);
+
+        //then
+        assertThat(actual, is(true));
+    }
 }

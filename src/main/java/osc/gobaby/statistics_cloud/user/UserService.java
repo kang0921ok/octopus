@@ -15,16 +15,27 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public User findUser(String userId){
-      return userMapper.selectOne(userId);
+    public boolean login(User user) {
+        User sUser = findUser(user.getUserId());
+        return user.getUserPwd().equals(sUser.getUserPwd()) ? true : false;
     }
 
-    public List<User> findUserList(){
+    public boolean join(User user) {
+        int insertNum = userMapper.insert(user);
+        return insertNum == 1 ? true : false;
+    }
+
+    public boolean isDuplicate(User user) {
+        User sUser = userMapper.selectOne(user.getUserId());
+        return sUser != null ? true : false;
+    }
+
+    public User findUser(String userId) {
+        return userMapper.selectOne(userId);
+    }
+
+    public List<User> findUserList() {
         return userMapper.selectList();
-    }
-
-    public void insertUser(User user) {
-        userMapper.insert(user);
     }
 
     public void updateUser(User user) {
