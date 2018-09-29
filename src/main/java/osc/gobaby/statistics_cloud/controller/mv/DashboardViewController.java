@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class DashboardController {
+public class DashboardViewController {
 	
 	@RequestMapping("/dashboard")
-	public String root() {
+	public String dashboard() {
 		return "dashboard";
 	}
 	

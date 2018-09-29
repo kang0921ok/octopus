@@ -21,11 +21,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @RequestMapping(value = "/login" , method = RequestMethod.GET)
-	public String loginView() {
-		return "user/login";
-	}
     
     @ResponseBody
     @RequestMapping(value = "/login" , method = RequestMethod.POST)
@@ -34,12 +29,6 @@ public class UserController {
                 ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
     }
 
-    @RequestMapping("/join")
-	public String joinView() {
-		return "user/join";
-	}
-
-    
     @ResponseBody
     @RequestMapping(value = "/join" , method = RequestMethod.POST)
     public ApiResponse join(@RequestBody User user) {
@@ -51,6 +40,4 @@ public class UserController {
                     ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
         }
     }
-
-
 }
