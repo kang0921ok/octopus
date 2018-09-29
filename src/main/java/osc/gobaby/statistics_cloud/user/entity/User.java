@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.user;
+package osc.gobaby.statistics_cloud.user.entity;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..
