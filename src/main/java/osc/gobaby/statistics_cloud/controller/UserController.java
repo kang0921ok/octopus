@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import osc.gobaby.statistics_cloud.controller.vo.ApiResponse;
 import osc.gobaby.statistics_cloud.controller.vo.ApiResponseFactory;
 import osc.gobaby.statistics_cloud.controller.vo.ApiResponseType;
-import osc.gobaby.statistics_cloud.user.User;
+import osc.gobaby.statistics_cloud.user.entity.User;
 import osc.gobaby.statistics_cloud.user.UserService;
-
-import java.util.List;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..

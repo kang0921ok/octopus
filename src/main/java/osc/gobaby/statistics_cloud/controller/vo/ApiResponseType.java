@@ -4,6 +4,8 @@ public enum ApiResponseType {
     SUCCESS("success",""),
     FAIL("fail",""),
     ALREADY_EXIST("already_exist",""),
+
+    SQL_ERROR("sql_error",""),
     NETWORK_ERROR("network_error","");
 
     private String code;
