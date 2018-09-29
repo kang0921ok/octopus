@@ -1,14 +1,12 @@
-package osc.gobaby.statistics_cloud.controller;
+package osc.gobaby.statistics_cloud.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import osc.gobaby.statistics_cloud.admin.server.AdminServerService;
-import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponse;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseFactory;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseType;
 import osc.gobaby.statistics_cloud.controller.exception.NoMandatoryKeyException;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponse;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponseFactory;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponseType;
 import osc.gobaby.statistics_cloud.query.QueryService;
 import osc.gobaby.statistics_cloud.query.entity.Query;
 

@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.controller;
+package osc.gobaby.statistics_cloud.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import osc.gobaby.statistics_cloud.admin.server.AdminServerService;
 import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponse;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseFactory;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseType;
 import osc.gobaby.statistics_cloud.controller.exception.NoMandatoryKeyException;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponse;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponseFactory;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponseType;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..

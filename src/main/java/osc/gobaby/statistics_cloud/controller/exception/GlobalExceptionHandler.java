@@ -4,12 +4,11 @@ import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponse;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponseFactory;
-import osc.gobaby.statistics_cloud.controller.vo.ApiResponseType;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponse;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseFactory;
+import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseType;
 
 import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

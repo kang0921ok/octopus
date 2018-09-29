@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.controller.vo;
+package osc.gobaby.statistics_cloud.controller.api.vo;
 
 public enum ApiResponseType {
     SUCCESS("success",""),
