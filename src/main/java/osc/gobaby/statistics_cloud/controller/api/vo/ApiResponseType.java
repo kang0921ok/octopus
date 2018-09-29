@@ -3,10 +3,10 @@ package osc.gobaby.statistics_cloud.controller.api.vo;
 public enum ApiResponseType {
     SUCCESS("success",""),
     FAIL("fail",""),
-    ALREADY_EXIST("already_exist",""),
+    ALREADY_EXIST("already_exist","already_exist"),
 
-    SQL_ERROR("sql_error",""),
-    NETWORK_ERROR("network_error","");
+    SQL_ERROR("sql_error","sql_error"),
+    NETWORK_ERROR("network_error","network_error");
 
     private String code;
     private String message;
