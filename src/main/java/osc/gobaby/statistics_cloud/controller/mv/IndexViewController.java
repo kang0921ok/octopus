@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexViewController {
 
     @RequestMapping("/")
-    public String user() {
+    public String indexView() {
         return "index";
+    }
+    
+    @RequestMapping("/gate")
+    public String gateView() {
+        return "gate";
     }
 
 }
