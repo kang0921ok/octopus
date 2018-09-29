@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="osc.gobaby.statistics_cloud.user.repository.UserMapper">
 
-    <resultMap id="UserResultMap" type="osc.gobaby.statistics_cloud.user.User">
+    <resultMap id="UserResultMap" type="osc.gobaby.statistics_cloud.user.entity.User">
         <id column="user_id" jdbcType="VARCHAR" property="userId"/>
         <id column="user_pwd" jdbcType="VARCHAR" property="userPwd"/>
         <id column="master" jdbcType="DECIMAL" javaType="java.lang.Boolean" property="master"/>
@@ -24,7 +24,7 @@
         user
     </select>
 
-    <insert id="insert" parameterType="osc.gobaby.statistics_cloud.user.User">
+    <insert id="insert" parameterType="osc.gobaby.statistics_cloud.user.entity.User">
         insert
         into user
         (
@@ -39,7 +39,7 @@
         )
     </insert>
 
-    <update id="update" parameterType="osc.gobaby.statistics_cloud.user.User">
+    <update id="update" parameterType="osc.gobaby.statistics_cloud.user.entity.User">
         update
         user
         SET

@@ -2,7 +2,7 @@ package osc.gobaby.statistics_cloud.user.repository;
 
 
 import osc.gobaby.statistics_cloud.support.BaseMapper;
-import osc.gobaby.statistics_cloud.user.User;
+import osc.gobaby.statistics_cloud.user.entity.User;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ public interface UserMapper extends BaseMapper {
 	public User selectOne(String userId);
     public List<User> selectList();
     public int insert(User user);
-    public void update(User user);
+    public int update(User user);
 }

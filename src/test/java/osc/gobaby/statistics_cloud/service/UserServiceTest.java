@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import osc.gobaby.statistics_cloud.user.User;
+import osc.gobaby.statistics_cloud.user.entity.User;
 import osc.gobaby.statistics_cloud.user.UserService;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -34,7 +34,7 @@ public class UserServiceTest {
         boolean actual = userService.login(user);
 
         //then
-        assertThat(actual, is(true));
+        assertTrue(actual);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class UserServiceTest {
         boolean actual = userService.login(user);
 
         //then
-        assertThat(actual, is(false));
+        assertFalse(actual);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class UserServiceTest {
         boolean actual = userService.join(user);
 
         //then
-        assertThat(actual, is(true));
+        assertTrue(actual);
     }
 
     @Test
@@ -90,6 +90,6 @@ public class UserServiceTest {
         boolean actual = userService.isDuplicate(user);
 
         //then
-        assertThat(actual, is(true));
+        assertTrue(actual);
     }
 }

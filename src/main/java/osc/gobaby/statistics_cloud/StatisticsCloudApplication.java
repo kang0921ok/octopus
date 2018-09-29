@@ -31,7 +31,7 @@ public class StatisticsCloudApplication extends SpringBootServletInitializer {
     public BasicDataSource basicDataSource() {
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        basicDataSource.setUrl("jdbc:mysql://kang0921ok.c69qhd8qewh9.ap-northeast-2.rds.amazonaws.com:3306/sc");
+        basicDataSource.setUrl("jdbc:mysql://kang0921ok.c69qhd8qewh9.ap-northeast-2.rds.amazonaws.com:3306/sc?useUnicode=yes&characterEncoding=UTF-8");
         basicDataSource.setUsername("kang0921ok");
         basicDataSource.setPassword("kangkang");
         return basicDataSource;
