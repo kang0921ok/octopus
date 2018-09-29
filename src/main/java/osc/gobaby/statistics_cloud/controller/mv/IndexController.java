@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.controller;
+package osc.gobaby.statistics_cloud.controller.mv;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
