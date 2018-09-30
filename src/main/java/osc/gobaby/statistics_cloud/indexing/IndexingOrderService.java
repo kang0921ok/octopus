@@ -4,14 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
 import osc.gobaby.statistics_cloud.indexing.entity.IndexingOrderQuery;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsSpec;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsSpecCount;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsSpecField;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsType;
-import osc.gobaby.statistics_cloud.query.entity.Query;
+import osc.gobaby.statistics_cloud.query.schema.entity.Query;
 
 import java.util.ArrayList;
 import java.util.Arrays;

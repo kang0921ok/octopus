@@ -8,18 +8,18 @@ import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponse;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseType;
 import osc.gobaby.statistics_cloud.controller.exception.NoMandatoryKeyException;
-import osc.gobaby.statistics_cloud.query.QueryService;
-import osc.gobaby.statistics_cloud.query.entity.Query;
+import osc.gobaby.statistics_cloud.query.schema.QuerySchemaService;
+import osc.gobaby.statistics_cloud.query.schema.entity.Query;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..
  */
 @Controller
 @RequestMapping(value = "/api/v1.0/query")
-public class QueryController {
+public class QuerySchemaController {
 
     @Autowired
-    private QueryService queryService;
+    private QuerySchemaService querySchemaService;
 
     /**
      * 사용자가 쿼리 dimension, metric 저장 이후
@@ -32,7 +32,7 @@ public class QueryController {
 
         query.setUserId(userId);
 
-        AdminServer adminServer = queryService.startNewQuery(query);
+        AdminServer adminServer = querySchemaService.startNewQuery(query);
 
         return  adminServer != null?
                 ApiResponseFactory.createSuccess(adminServer) : ApiResponseFactory.createFail(ApiResponseType.FAIL);
@@ -42,7 +42,7 @@ public class QueryController {
     @ResponseBody
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ApiResponse findQueryListForUserId(@PathVariable String userId) {
-        return ApiResponseFactory.createSuccess(queryService.findQueryListForUserId(userId));
+        return ApiResponseFactory.createSuccess(querySchemaService.findQueryListForUserId(userId));
     }
 
 
@@ -51,7 +51,7 @@ public class QueryController {
     @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
     public ApiResponse changeQuery(@PathVariable String userId, @RequestBody Query query) throws NoMandatoryKeyException {
         query.setUserId(userId);
-        return queryService.modifyQuery(query) ?
+        return querySchemaService.modifyQuery(query) ?
                 ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
     }
 }

@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
-import osc.gobaby.statistics_cloud.indexing.entity.DataSchema;
 import osc.gobaby.statistics_cloud.indexing.entity.IndexingOrderQuery;
-import osc.gobaby.statistics_cloud.indexing.entity.IoConfig;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsSpec;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsSpecCount;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsSpecField;
 import osc.gobaby.statistics_cloud.indexing.entity.metrics.MetricsType;
-import osc.gobaby.statistics_cloud.query.entity.Query;
+import osc.gobaby.statistics_cloud.query.schema.entity.Query;
 
 import java.util.ArrayList;
 import java.util.Arrays;

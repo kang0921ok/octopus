@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.query;
+package osc.gobaby.statistics_cloud.query.schema;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +7,13 @@ import osc.gobaby.statistics_cloud.admin.server.AdminServerService;
 import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
 import osc.gobaby.statistics_cloud.controller.exception.NoMandatoryKeyException;
 import osc.gobaby.statistics_cloud.indexing.IndexingOrderService;
-import osc.gobaby.statistics_cloud.query.entity.Query;
-import osc.gobaby.statistics_cloud.query.repository.QueryMapper;
+import osc.gobaby.statistics_cloud.query.schema.entity.Query;
+import osc.gobaby.statistics_cloud.query.schema.repository.QueryMapper;
 
 import java.util.List;
 
 @Service
-public class QueryService {
+public class QuerySchemaService {
 
     @Autowired
     private QueryMapper queryMapper;
