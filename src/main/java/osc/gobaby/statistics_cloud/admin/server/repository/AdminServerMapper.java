@@ -13,6 +13,9 @@ import java.util.List;
 public interface AdminServerMapper extends BaseMapper {
     public AdminServer selectOne(String userId);
     public List<AdminServer> selectList();
+    public AdminServer selectKafkaType();
+    public AdminServer selectDruidOverlordType();
+    public AdminServer selectDruidBrokerType();
     public int insert(AdminServer adminServer);
     public int update(AdminServer adminServer);
 }

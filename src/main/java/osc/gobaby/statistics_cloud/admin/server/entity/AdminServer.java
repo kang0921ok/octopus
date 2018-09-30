@@ -5,7 +5,7 @@ import java.util.Date;
 public class AdminServer {
     private String id;
     private AdminServerType adminServerType;
-    private String name;
+    private String name; //kafka - topic
     private String ip;
     private String port;
     private String path;

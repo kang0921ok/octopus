@@ -1,7 +1,7 @@
-package osc.gobaby.statistics_cloud.query.repository;
+package osc.gobaby.statistics_cloud.query.schema.repository;
 
 
-import osc.gobaby.statistics_cloud.query.entity.Query;
+import osc.gobaby.statistics_cloud.query.schema.entity.Query;
 import osc.gobaby.statistics_cloud.support.BaseMapper;
 
 import java.util.List;

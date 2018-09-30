@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.query.entity;
+package osc.gobaby.statistics_cloud.query.schema.entity;
 
 import java.util.Date;
 

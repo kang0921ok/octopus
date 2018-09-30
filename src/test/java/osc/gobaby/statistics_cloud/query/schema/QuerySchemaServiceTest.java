@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.query;
+package osc.gobaby.statistics_cloud.query.schema;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import osc.gobaby.statistics_cloud.admin.server.AdminServerService;
-import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
-import osc.gobaby.statistics_cloud.admin.server.entity.AdminServerType;
-import osc.gobaby.statistics_cloud.query.entity.Query;
+import osc.gobaby.statistics_cloud.query.schema.QuerySchemaService;
+import osc.gobaby.statistics_cloud.query.schema.entity.Query;
 
 import java.util.List;
 
@@ -18,10 +16,10 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class QueryServiceTest {
+public class QuerySchemaServiceTest {
 
     @Autowired
-    private QueryService queryService;
+    private QuerySchemaService querySchemaService;
 
     @Test
     public void createQueryTest(){
@@ -32,7 +30,7 @@ public class QueryServiceTest {
         query.setMetric("g,d,f");
 
         // when
-        boolean actual = queryService.createQuery(query);
+        boolean actual = querySchemaService.createQuery(query);
 
         // then
         assertTrue(actual);
@@ -46,12 +44,12 @@ public class QueryServiceTest {
         query.setDimension("g,f,g");
         query.setMetric("g,d,f");
 
-        queryService.createQuery(query);
-        queryService.createQuery(query);
-        queryService.createQuery(query);
+        querySchemaService.createQuery(query);
+        querySchemaService.createQuery(query);
+        querySchemaService.createQuery(query);
 
         // when
-        List<Query> actual = queryService.findQueryList();
+        List<Query> actual = querySchemaService.findQueryList();
 
         // then
         assertNotNull(actual);

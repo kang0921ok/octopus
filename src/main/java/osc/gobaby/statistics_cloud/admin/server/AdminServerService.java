@@ -34,4 +34,16 @@ public class AdminServerService {
     public List<AdminServer> findAdminServerList() {
         return adminServerMapper.selectList();
     }
+
+    public AdminServer findKafkaServer() {
+        return adminServerMapper.selectKafkaType();
+    }
+
+    public AdminServer findDruidOverlordServer() {
+        return adminServerMapper.selectDruidOverlordType();
+    }
+
+    public AdminServer findDruidBrokerServer() {
+        return adminServerMapper.selectDruidBrokerType();
+    }
 }
