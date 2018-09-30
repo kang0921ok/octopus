@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import osc.gobaby.statistics_cloud.admin.server.AdminServerService;
+import osc.gobaby.statistics_cloud.admin.server.StatisticsConnectTestService;
 import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
+import osc.gobaby.statistics_cloud.admin.server.entity.ConnectEntity;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponse;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseType;
@@ -22,6 +24,9 @@ public class AdminServerController {
 
     @Autowired
     private AdminServerService adminServerService;
+
+    @Autowired
+    private StatisticsConnectTestService connectTestService;
 
     @ResponseBody
     @RequestMapping(value = "/server", method = RequestMethod.GET)
@@ -41,6 +46,27 @@ public class AdminServerController {
     @RequestMapping(value = "/server", method = RequestMethod.PUT)
     public ApiResponse changeServer(@RequestBody AdminServer adminServer) throws NoMandatoryKeyException {
         return adminServerService.modifyAdminServer(adminServer) ?
+                ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/server/test/kafka", method = RequestMethod.PUT)
+    public ApiResponse connectTestKafka(@RequestBody ConnectEntity connectEntity) throws NoMandatoryKeyException {
+        return connectTestService.connectTestKafka(connectEntity) ?
+                ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/server/test/druid/overlord", method = RequestMethod.PUT)
+    public ApiResponse connectTestDruidOverlord(@RequestBody ConnectEntity connectEntity) throws NoMandatoryKeyException {
+        return connectTestService.connectTestDruidOverlord(connectEntity) ?
+                ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/server/test/druid/broker", method = RequestMethod.PUT)
+    public ApiResponse conenctTestDruidBroker(@RequestBody ConnectEntity connectEntity) throws NoMandatoryKeyException {
+        return connectTestService.connectTestDruidBroker(connectEntity) ?
                 ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
     }
 }
