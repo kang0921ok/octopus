@@ -252,4 +252,7 @@ local.properties
 # Annotation Processing
 .apt_generated
 
+# ignore db connection by-product
+.db
+
 # End of https://www.gitignore.io/api/web,java,eclipse
