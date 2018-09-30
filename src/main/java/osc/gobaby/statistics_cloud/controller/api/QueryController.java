@@ -3,6 +3,7 @@ package osc.gobaby.statistics_cloud.controller.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponse;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.statistics_cloud.controller.api.vo.ApiResponseType;
@@ -20,20 +21,31 @@ public class QueryController {
     @Autowired
     private QueryService queryService;
 
+    /**
+     * 사용자가 쿼리 dimension, metric 저장 이후
+     * druid indexing 시작
+     * kafka 정보 리턴
+     */
+    @ResponseBody
+    @RequestMapping(value = "/{userId}", method = RequestMethod.POST)
+    public ApiResponse createQuery(@PathVariable String userId, @RequestBody Query query) {
+
+        query.setUserId(userId);
+
+        AdminServer adminServer = queryService.startNewQuery(query);
+
+        return  adminServer != null?
+                ApiResponseFactory.createSuccess(adminServer) : ApiResponseFactory.createFail(ApiResponseType.FAIL);
+
+    }
+
     @ResponseBody
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ApiResponse findQueryListForUserId(@PathVariable String userId) {
         return ApiResponseFactory.createSuccess(queryService.findQueryListForUserId(userId));
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/{userId}", method = RequestMethod.POST)
-    public ApiResponse createQuery(@PathVariable String userId, @RequestBody Query query) {
-        query.setUserId(userId);
-        return queryService.createQuery(query) ?
-                ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);
 
-    }
 
     @ResponseBody
     @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
