@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="layout/common">
-  
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/common">
+
 <head>
-    <title>Register</title>
+<title>Register</title>
 </head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="row main">
+			<div class="main-login main-center">
+				<form class="form-horizontal" method="post" action="#">
 
-<div layout:fragment="content" class="container">
-    <div class="row main">
-        <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="#">
+					<div class="form-group">
+						<label for="_octopus-email" class="cols-sm-2 control-label">Your
+							Email</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<input type="text" class="form-control" id="_octopus-email"
+									placeholder="Enter your Email" />
+							</div>
+						</div>
+					</div>
 
-                <div class="form-group">
-                    <label for="_octopus-email" class="cols-sm-2 control-label">Your
-                        Email</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="_octopus-email" placeholder="Enter your Email"/>
-                        </div>
-                    </div>
-                </div>
+					<div class="form-group">
+						<label for="_octopus-password" class="cols-sm-2 control-label">Password</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<input type="password" class="form-control"
+									id="_octopus-password" placeholder="Enter your Password" />
+							</div>
+						</div>
+					</div>
 
-                <div class="form-group">
-                    <label for="_octopus-password" class="cols-sm-2 control-label">Password</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="_octopus-password" placeholder="Enter your Password"/>
-                        </div>
-                    </div>
-                </div>
+					<div class="form-group">
+						<label for="_octopus-password-confirm"
+							class="cols-sm-2 control-label">Confirm Password</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<input type="password" class="form-control"
+									id="_octopus-password-confirm"
+									placeholder="Confirm your Password" />
+							</div>
+						</div>
+					</div>
 
-                <div class="form-group">
-                    <label for="_octopus-password-confirm" class="cols-sm-2 control-label">Confirm
-                        Password</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="_octopus-password-confirm"  placeholder="Confirm your Password"/>
-                        </div>
-                    </div>
-                </div>
+					<div class="form-group ">
+						<button type="button"
+							class="btn btn-primary btn-lg btn-block login-button"
+							id="_octopus-join-btn">Register</button>
+					</div>
+					<div class="login-register">
+						<a href="/user/login">Login</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-                <div class="form-group ">
-                    <button type="button"
-                            class="btn btn-primary btn-lg btn-block login-button"
-                            id="_octopus-join-btn">Register
-                    </button>
-                </div>
-                <div class="login-register">
-                    <a href="/user/login">Login</a>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="/resources/js/join.js"></script>
+	<script src="/resources/js/join.js"></script>
+</body>
 </html>
