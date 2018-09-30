@@ -27,6 +27,30 @@
         server
     </select>
 
+    <select id="selectKafkaType" resultMap="AdminServerResultMap">
+        select
+        *
+        from
+        server
+        where server_type = 'KAFKA'
+    </select>
+
+    <select id="selectDruidOverlordType" resultMap="AdminServerResultMap">
+        select
+        *
+        from
+        server
+        where server_type = 'DRUID_OVERLOAD'
+    </select>
+
+    <select id="selectDruidBrokerType" resultMap="AdminServerResultMap">
+        select
+        *
+        from
+        server
+        where server_type = 'DRUID_BROKER'
+    </select>
+
     <insert id="insert" parameterType="osc.gobaby.statistics_cloud.admin.server.entity.AdminServer">
         insert
         into server
