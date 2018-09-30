@@ -5,12 +5,20 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import osc.gobaby.statistics_cloud.admin.db.DbConnectUtils;
+import osc.gobaby.statistics_cloud.admin.db.entity.DbConnect;
 import osc.gobaby.statistics_cloud.support.BaseMapper;
+
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..
@@ -22,19 +30,18 @@ public class StatisticsCloudApplication extends SpringBootServletInitializer {
     @Autowired
     private ApplicationContext applicationContext;
 
-
     public static void main(String[] args) {
         SpringApplication.run(StatisticsCloudApplication.class, args);
     }
 
     @Bean
     public BasicDataSource basicDataSource() {
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        basicDataSource.setUrl("jdbc:mysql://kang0921ok.c69qhd8qewh9.ap-northeast-2.rds.amazonaws.com:3306/sc?useUnicode=yes&characterEncoding=UTF-8");
-        basicDataSource.setUsername("kang0921ok");
-        basicDataSource.setPassword("kangkang");
-        return basicDataSource;
+        if(DbConnectUtils.isCreatedDbConnectMetaFile()){
+            DbConnect dbConnect = DbConnectUtils.findDbConnectMetaFile();
+            return DbConnectUtils.createBasicDataSource(dbConnect);
+        } else {
+            return new BasicDataSource();
+        }
     }
 
     @Bean
@@ -42,5 +49,22 @@ public class StatisticsCloudApplication extends SpringBootServletInitializer {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(basicDataSource());
         return sessionFactoryBean.getObject();
+    }
+
+    @Configuration
+    public class WebMvcConfig extends WebMvcConfigurerAdapter {
+
+        @Autowired
+        @Qualifier(value = "dbConnectionInterceptor")
+        private HandlerInterceptor interceptor;
+
+        @Override
+        public void addInterceptors(InterceptorRegistry registry) {
+            registry.addInterceptor(interceptor)
+                    .addPathPatterns("/**")
+                    .excludePathPatterns("/api/**")
+                    .excludePathPatterns("/gate/**")
+                    .excludePathPatterns("/resources/**");
+        }
     }
 }

@@ -17,7 +17,7 @@ import osc.gobaby.statistics_cloud.controller.exception.NoMandatoryKeyException;
  * Created by ShinHyun.Kang on 2018. 9. 9..
  */
 @Controller
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/api/v1.0/admin")
 public class AdminServerController {
 
     @Autowired

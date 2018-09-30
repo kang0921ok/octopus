@@ -12,7 +12,7 @@ login = function () {
     request.userPwd = password;
 
     $.ajax({
-        url: "/user/login",
+        url: "/api/v1.0/user/login",
         type: "POST",
         data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",
