@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav th:fragment="sidebarFragment" class="col-md-2 d-none d-md-block bg-light sidebar">
+	<div class="sidebar-sticky">
+
+		<!-- User용 sidebar -->
+		<ul class="nav flex-column">
+			<li class="nav-item nav-item-main"><a class="nav-link" href="#">
+					<span data-feather="user"></span> User
+			</a></li>
+			<li class="nav-item nav-item-sub"><a class="nav-link active"
+				href="#"> <span data-feather="settings"></span> Query Schema
+			</a></li>
+			<li class="nav-item nav-item-sub"><a class="nav-link" href="#">
+					<span data-feather="settings"></span> Query
+			</a></li>
+		</ul>
+
+		<!-- Admin용 sidebar -->
+		<ul class="nav flex-column">
+			<li class="nav-item nav-item-main"><a class="nav-link" href="#">
+					<span data-feather="user"></span> Admin
+			</a></li>
+			<li class="nav-item nav-item-sub"><a class="nav-link active"
+				href="#"> <span data-feather="settings"></span> Server
+			</a></li>
+		</ul>
+	</div>
+</nav>
+</html>
