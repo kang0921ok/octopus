@@ -1,7 +1,7 @@
 # Octopus
-기술의 발전과 함께 데이터의 양도 무섭도록 증가하고 있습니다. 수많은 데이터 속에서 가치를 내기 위해서 대용량 데이터와 이를 분석 시스템 구축이 필요합니다. 
+기술의 발전과 함께 데이터의 양도 무섭도록 증가하고 있습니다. 수많은 데이터 속에서 가치를 내기 위해서 대용량 데이터와 이를 분석하기 위한 시스템 구축이 필요합니다. 
 
-대용량 데이터를 분석하기 위해서 다양한 플랫폼이 존재합니다. 그 중 Druid는 대량의 이벤트 데이터를 신속하게 수집하며 빠른 수준으로 쿼리에 대한 응답을 제공합니다. Druid는 Apache incubator단계의 오픈 소스이며 이에 대해서는 뒤에서 좀 더 자세히 설명하겠습니다. 
+대용량 데이터를 분석하기 위해서 다양한 플랫폼이 존재합니다. 그 중 [**Druid**](http://druid.io/)는 대량의 이벤트 데이터를 신속하게 수집하며 빠른 수준으로 쿼리에 대한 응답을 제공합니다.
 
 
 Druid를 비롯한 대용량 데이터 분석 플랫폼은 구축을 위한 오픈 소스가 활성화 되어 있어 구축에는 크게 어려움이 없습니다. 하지만 플랫폼을 정확히 이해하고 사용하기에는 많은 수고가 따르게 됩니다. 
@@ -18,7 +18,7 @@ Druid를 비롯한 대용량 데이터 분석 플랫폼은 구축을 위한 오�
 
 ## Structure
 Below figure shows Whole flow of Octopus.
-<img src="https://user-images.githubusercontent.com/16604419/46259654-2c1fc780-c517-11e8-8c4c-1459a7f38af6.png"></img>
+<img src="https://user-images.githubusercontent.com/16604419/46259747-3f7f6280-c518-11e8-80c9-c4de8621629d.png"></img>
 Octopus connects the user with the statistics system. Also it supports multi tenancy architecture.
 
 Below figures show data flow of Octopus.
