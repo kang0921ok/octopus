@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="layout/common">
-  
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/common">
+
 <head>
-    <link href="/resources/css/signin.css" rel="stylesheet">
-    <title>login</title>
+<link href="/resources/css/signin.css" rel="stylesheet">
+<title>login</title>
 </head>
 
-<div layout:fragment="content" class="text-center">
-<form class="form-signin">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="_octopus-email" class="sr-only">Email address</label>
-    <input type="text" id="_octopus-email" class="form-control" placeholder="Email address" required autofocus>
-    <label for="_octopus-password" class="sr-only">Password</label>
-    <input type="password" id="_octopus-password" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" id="_octopus-remember-me" value="remember-me"> Remember me
-        </label>
-    </div>
-    <p id="_octopus-login-btn" class="btn btn-lg btn-primary btn-block">Sign in</p>
-    <p class="mt-5 mb-3 text-muted">&copy; 2018~</p>
-    <div class="join-register">
-        <a href="/user/join">Join</a>
-    </div>
-</form>
+<body>
+	<div layout:fragment="content" class="text-center">
+		<form class="form-signin">
+			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+			<label for="_octopus-email" class="sr-only">Email address</label> <input
+				type="text" id="_octopus-email" class="form-control"
+				placeholder="Email address" required autofocus> <label
+				for="_octopus-password" class="sr-only">Password</label> <input
+				type="password" id="_octopus-password" class="form-control"
+				placeholder="Password" required>
+			<div class="checkbox mb-3">
+				<label> <input type="checkbox" id="_octopus-remember-me"
+					value="remember-me"> Remember me
+				</label>
+			</div>
+			<p id="_octopus-login-btn" class="btn btn-lg btn-primary btn-block">Sign
+				in</p>
+			<p class="mt-5 mb-3 text-muted">&copy; 2018~</p>
+			<div class="join-register">
+				<a href="/user/join">Join</a>
+			</div>
+		</form>
 
-</div>
-<script src="/resources/js/login.js"></script>
-
+	</div>
+	<script src="/resources/js/login.js"></script>
+</body>
 </html>

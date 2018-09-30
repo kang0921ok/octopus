@@ -1,78 +1,79 @@
 <!DOCTYPE html>
-<html
-  xmlns:th="http://www.thymeleaf.org"	
-  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="layout/common">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/common">
 
 <head>
-    <title>Gate</title>
+<title>Gate</title>
 </head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="row main">
+			<div class="main-login main-center">
+				<form class="form-horizontal" method="post" action="#">
+					<div class="form-group">
+						<label for="_octopus-db-system" class="cols-sm-2 control-label">Your
+							DB System</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<select id="_octopus-db-system" class="width-inherit">
+									<option value="MYSQL">MYSQL</option>
+								</select>
+							</div>
+						</div>
+					</div>
 
-<div layout:fragment="content" class="container">
-    <div class="row main">
-        <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="#">
-                <div class="form-group">
-                    <label for="_octopus-db-system" class="cols-sm-2 control-label">Your DB System</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <select id="_octopus-db-system" class="width-inherit">
-                                <option value="MYSQL">MYSQL</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+					<div class="form-group">
+						<label for="_octopus-ip" class="cols-sm-2 control-label">IP</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<input type="text" class="form-control" id="_octopus-ip"
+									placeholder="Enter your IP"
+									value="kang0921ok.c69qhd8qewh9.ap-northeast-2.rds.amazonaws.com" />
+							</div>
+						</div>
+					</div>
 
-                <div class="form-group">
-                    <label for="_octopus-ip" class="cols-sm-2 control-label">IP</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="_octopus-ip" placeholder="Enter your IP" value="kang0921ok.c69qhd8qewh9.ap-northeast-2.rds.amazonaws.com"/>
-                        </div>
-                    </div>
-                </div>
+					<div class="form-group">
+						<label for="_octopus-port" class="cols-sm-2 control-label">Port</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<input type="text" class="form-control" id="_octopus-port"
+									placeholder="Enter your Port" value="3306" />
+							</div>
+						</div>
+					</div>
 
-                <div class="form-group">
-                    <label for="_octopus-port" class="cols-sm-2 control-label">Port</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="_octopus-port"
-                                   placeholder="Enter your Port" value="3306"/>
-                        </div>
-                    </div>
-                </div>
+					<div class="form-group">
+						<label for="_octopus-username" class="cols-sm-2 control-label">Username</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<input type="text" class="form-control" id="_octopus-username"
+									placeholder="Enter your Username" value="kang0921ok" />
+							</div>
+						</div>
+					</div>
 
-                <div class="form-group">
-                    <label for="_octopus-username" class="cols-sm-2 control-label">Username</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="_octopus-username"
-                                   placeholder="Enter your Username" value="kang0921ok"/>
-                        </div>
-                    </div>
-                </div>
+					<div class="form-group">
+						<label for="_octopus-password" class="cols-sm-2 control-label">Password</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<input type="password" class="form-control"
+									id="_octopus-password" placeholder="Enter your Password"
+									value="kangkang" />
+							</div>
+						</div>
+					</div>
 
-                <div class="form-group">
-                    <label for="_octopus-password" class="cols-sm-2 control-label">Password</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="_octopus-password"
-                                   placeholder="Enter your Password" value="kangkang"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group ">
-                    <button type="button"
-                            class="btn btn-primary btn-lg btn-block login-button"
-                            id="_octopus-connect">Connect
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="/resources/js/gate.js"></script>
-
+					<div class="form-group ">
+						<button type="button"
+							class="btn btn-primary btn-lg btn-block login-button"
+							id="_octopus-connect">Connect</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/resources/js/gate.js"></script>
+</body>
 </html>
