@@ -14,7 +14,7 @@ import osc.gobaby.statistics_cloud.query.entity.Query;
  * Created by ShinHyun.Kang on 2018. 9. 9..
  */
 @Controller
-@RequestMapping(value = "/query")
+@RequestMapping(value = "/api/v1.0/query")
 public class QueryController {
 
     @Autowired

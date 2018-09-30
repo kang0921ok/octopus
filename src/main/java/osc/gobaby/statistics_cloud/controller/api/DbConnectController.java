@@ -24,7 +24,7 @@ public class DbConnectController {
     private DbConnectService dbConnectService;
 
     @ResponseBody
-    @RequestMapping(value = "/dbConnect", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1.0/dbConnect", method = RequestMethod.POST)
     public ApiResponse dbConnect(@RequestBody DbConnect dbConnect) {
         return dbConnectService.init(dbConnect) ?
                 ApiResponseFactory.createSuccess() : ApiResponseFactory.createFail(ApiResponseType.FAIL);

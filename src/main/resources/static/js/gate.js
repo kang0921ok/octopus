@@ -18,7 +18,7 @@ connect = function () {
     request.password = password;
 
     $.ajax({
-        url: "/dbConnect",
+        url: "/api/v1.0/dbConnect",
         type: "POST",
         data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",

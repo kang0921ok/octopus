@@ -18,7 +18,7 @@ join = function () {
     request.userPwd = password;
 
     $.ajax({
-        url: "/user/join",
+        url: "/api/v1.0/user/join",
         type: "POST",
         data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",

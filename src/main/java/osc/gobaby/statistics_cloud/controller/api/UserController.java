@@ -16,7 +16,7 @@ import osc.gobaby.statistics_cloud.user.UserService;
  * Created by ShinHyun.Kang on 2018. 9. 9..
  */
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/api/v1.0/user")
 public class UserController {
 
     @Autowired
