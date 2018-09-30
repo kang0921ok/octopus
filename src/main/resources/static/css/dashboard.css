@@ -3,6 +3,26 @@ body {
   background-color: #fff;
 }
 
+hr {
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+button{
+  	width: auto !important;
+  	margin:auto;
+  	display:block;
+}
+
+.control-label {
+	width: 100%;
+}
+
+.input-group {
+	margin-bottom: 20px;
+}
+
 .feather {
   width: 16px;
   height: 16px;
@@ -103,4 +123,11 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+#_octopus-contents-container {
+	margin-top: 48px;
+	padding-top: 20px;
+	margin-left: 100px;
+	padding-left: 20px;
 }

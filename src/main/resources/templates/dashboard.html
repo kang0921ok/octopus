@@ -7,7 +7,7 @@
 
 <!-- Bootstrap CSS -->
 <link href="/resources/css/dashboard.css" rel="stylesheet">
-<title>Dashboard</title>
+<title>Dashboard-${menu}</title>
 </head>
 <body>
 	<div class="container">
@@ -15,10 +15,13 @@
 
 		<div class="container-fluid">
 			<div th:replace="fragments/dashboard/sidebar :: sidebarFragment" class="row"></div>
-				<main layout:fragment="content" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+				<div layout:fragment="content">
+				<div 
+					th:replace="@{'fragments/dashboard/' + ${menu}} :: contentFragment" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">	
 				<div
+					id="_octopus-contents-area"
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">Dashboard</h1>
+					<!-- <h1 class="h2">Dashboard</h1>
 					<div class="btn-toolbar mb-2 mb-md-0">
 						<div class="btn-group mr-2">
 							<button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -27,12 +30,15 @@
 						<button class="btn btn-sm btn-outline-secondary dropdown-toggle">
 							<span data-feather="calendar"></span> This week
 						</button>
-					</div>
+					</div> -->
+				
+					
 				</div>
 
 				<!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 
-				</main>
+				</div>
+				</div>
 			</div>
 		</div>
 	</div>
