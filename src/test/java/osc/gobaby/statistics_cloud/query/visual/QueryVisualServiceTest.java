@@ -1,12 +1,11 @@
-package osc.gobaby.statistics_cloud.query.visual;
+package osc.gobaby.octopus.query.visual;
 
-import net.bytebuddy.asm.Advice;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
+import osc.gobaby.octopus.admin.server.entity.AdminServer;
 
 import static org.junit.Assert.*;
 

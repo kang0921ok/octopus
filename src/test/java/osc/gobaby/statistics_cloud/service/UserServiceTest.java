@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.service;
+package osc.gobaby.octopus.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import osc.gobaby.statistics_cloud.user.entity.User;
-import osc.gobaby.statistics_cloud.user.UserService;
+import osc.gobaby.octopus.user.entity.User;
+import osc.gobaby.octopus.user.UserService;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;

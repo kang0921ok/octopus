@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="osc.gobaby.octopus.user.repository.UserMapper">
+
+    <resultMap id="UserResultMap" type="osc.gobaby.octopus.user.entity.User">
+        <id column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <id column="user_pwd" jdbcType="VARCHAR" property="userPwd"/>
+        <id column="master" jdbcType="DECIMAL" javaType="java.lang.Boolean" property="master"/>
+        <id column="secret_key" jdbcType="VARCHAR" property="secretKey"/>
+    </resultMap>
+
+    <select id="selectOne" parameterType="String" resultMap="UserResultMap">
+        select
+        *
+        from
+        user
+        where user_id = #{userId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectList" resultMap="UserResultMap">
+        select
+        *
+        from
+        user
+    </select>
+
+    <insert id="insert" parameterType="osc.gobaby.octopus.user.entity.User">
+        insert
+        into user
+        (
+        <include refid="base_column_list"/>
+        )
+        values
+        (
+        #{userId,jdbcType=VARCHAR},
+        #{userPwd,jdbcType=VARCHAR},
+        #{master,jdbcType=DECIMAL},
+        #{secretKey,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <update id="update" parameterType="osc.gobaby.octopus.user.entity.User">
+        update
+        user
+        SET
+        user_pwd = #{userPwd, jdbcType=VARCHAR},
+        secret_key = #{secretKey, jdbcType=VARCHAR}
+        WHERE
+        user_id = #{userId, jdbcType=VARCHAR}
+    </update>
+
+    <sql id="base_column_list">
+        user_id,
+        user_pwd,
+        master,
+        secret_key
+    </sql>
+
+</mapper>

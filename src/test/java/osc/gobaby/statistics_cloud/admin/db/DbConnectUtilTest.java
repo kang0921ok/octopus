@@ -1,9 +1,9 @@
-package osc.gobaby.statistics_cloud.admin.db;
+package osc.gobaby.octopus.admin.db;
 
 import org.junit.Before;
 import org.junit.Test;
-import osc.gobaby.statistics_cloud.admin.db.entity.DbConnect;
-import osc.gobaby.statistics_cloud.admin.db.entity.DbType;
+import osc.gobaby.octopus.admin.db.entity.DbConnect;
+import osc.gobaby.octopus.admin.db.entity.DbType;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

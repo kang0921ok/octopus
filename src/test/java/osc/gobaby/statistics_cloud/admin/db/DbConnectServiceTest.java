@@ -1,12 +1,12 @@
-package osc.gobaby.statistics_cloud.admin.db;
+package osc.gobaby.octopus.admin.db;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import osc.gobaby.statistics_cloud.admin.db.entity.DbConnect;
-import osc.gobaby.statistics_cloud.admin.db.entity.DbType;
+import osc.gobaby.octopus.admin.db.entity.DbConnect;
+import osc.gobaby.octopus.admin.db.entity.DbType;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

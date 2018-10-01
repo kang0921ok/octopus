@@ -1,4 +1,4 @@
-package osc.gobaby.statistics_cloud.admin.server;
+package osc.gobaby.octopus.admin.server;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
-import osc.gobaby.statistics_cloud.admin.server.entity.AdminServerType;
+import osc.gobaby.octopus.admin.server.entity.AdminServer;
+import osc.gobaby.octopus.admin.server.entity.AdminServerType;
 
 import java.util.List;
 

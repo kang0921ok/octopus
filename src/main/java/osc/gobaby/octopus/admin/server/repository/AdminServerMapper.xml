@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="osc.gobaby.octopus.admin.server.repository.AdminServerMapper">
+
+    <resultMap id="AdminServerResultMap" type="osc.gobaby.octopus.admin.server.entity.AdminServer">
+        <id column="server_type" jdbcType="VARCHAR" property="adminServerType" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+        <id column="server_ip" jdbcType="VARCHAR" property="ip"/>
+        <id column="server_port" jdbcType="VARCHAR" property="port"/>
+        <id column="update_date" jdbcType="DATE" property="updateDate"/>
+        <id column="update_user_id" jdbcType="VARCHAR" property="updateUserId"/>
+    </resultMap>
+
+    <select id="selectList" resultMap="AdminServerResultMap">
+        select
+        *
+        from
+        server
+    </select>
+
+    <select id="selectKafkaType" resultMap="AdminServerResultMap">
+        select
+        *
+        from
+        server
+        where server_type = 'KAFKA'
+    </select>
+
+    <select id="selectDruidOverlordType" resultMap="AdminServerResultMap">
+        select
+        *
+        from
+        server
+        where server_type = 'DRUID_OVERLOAD'
+    </select>
+
+    <select id="selectDruidBrokerType" resultMap="AdminServerResultMap">
+        select
+        *
+        from
+        server
+        where server_type = 'DRUID_BROKER'
+    </select>
+
+    <insert id="insert" parameterType="osc.gobaby.octopus.admin.server.entity.AdminServer">
+        insert
+        into server
+        (
+        <include refid="base_column_list"/>
+        )
+        values
+        (
+        #{adminServerType,jdbcType=VARCHAR},
+        #{ip,jdbcType=VARCHAR},
+        #{port,jdbcType=VARCHAR},
+        now(),
+        #{updateUserId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <update id="update" parameterType="osc.gobaby.octopus.admin.server.entity.AdminServer">
+        update
+        server
+        SET
+        server_type = #{adminServerType, jdbcType=VARCHAR},
+        server_ip = #{ip, jdbcType=VARCHAR},
+        server_port = #{port, jdbcType=VARCHAR},
+        update_date = now(),
+        update_user_id = #{updateUserId, jdbcType=VARCHAR}
+        WHERE
+        id = #{id, jdbcType=VARCHAR}
+    </update>
+
+    <sql id="base_column_list">
+        server_type,
+        server_ip,
+        server_port,
+        update_date,
+        update_user_id
+    </sql>
+
+</mapper>
