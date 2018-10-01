@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <nav th:fragment="navbarFragment"
-	class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Octopus</a>
+	class="navbar navbar-dark fixed-top flex-md-nowrap p-0 shadow">
+	<a class="navbar-logo-container navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+		<img class="navbar-logo" src="/resources/image/logo.png" style="height: 48px;">
+	</a>
 	<ul class="navbar-nav px-3">
-		<li class="nav-item text-nowrap"><a class="nav-link" href="#">Sign
-				out</a></li>
+		<li class="nav-item text-nowrap"><a class="nav-link a-sign-out" href="#">Signout</a></li>
 	</ul>
 </nav>
 </html>
