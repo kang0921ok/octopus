@@ -7,12 +7,12 @@ public class User {
     private String userId;
     private String userPwd;
     private Boolean master;
-    private int secretKey;
+    private String secretKey;
 
     public User() {
     }
 
-    public User(String userId, String userPwd, Boolean master, int secretKey) {
+    public User(String userId, String userPwd, Boolean master, String secretKey) {
         this.userId = userId;
         this.userPwd = userPwd;
         this.master = master;
@@ -43,11 +43,11 @@ public class User {
         this.master = master;
     }
 
-    public int getSecretKey() {
+    public String getSecretKey() {
         return secretKey;
     }
 
-    public void setSecretKey(int secretKey) {
+    public void setSecretKey(String secretKey) {
         this.secretKey = secretKey;
     }
 }

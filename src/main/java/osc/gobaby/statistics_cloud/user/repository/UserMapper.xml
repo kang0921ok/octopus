@@ -6,7 +6,7 @@
         <id column="user_id" jdbcType="VARCHAR" property="userId"/>
         <id column="user_pwd" jdbcType="VARCHAR" property="userPwd"/>
         <id column="master" jdbcType="DECIMAL" javaType="java.lang.Boolean" property="master"/>
-        <id column="secret_key" jdbcType="DECIMAL" property="secretKey"/>
+        <id column="secret_key" jdbcType="VARCHAR" property="secretKey"/>
     </resultMap>
 
     <select id="selectOne" parameterType="String" resultMap="UserResultMap">
@@ -35,7 +35,7 @@
         #{userId,jdbcType=VARCHAR},
         #{userPwd,jdbcType=VARCHAR},
         #{master,jdbcType=DECIMAL},
-        #{secretKey,jdbcType=DECIMAL}
+        #{secretKey,jdbcType=VARCHAR}
         )
     </insert>
 
@@ -44,7 +44,7 @@
         user
         SET
         user_pwd = #{userPwd, jdbcType=VARCHAR},
-        secret_key = #{secretKey, jdbcType=DECIMAL}
+        secret_key = #{secretKey, jdbcType=VARCHAR}
         WHERE
         user_id = #{userId, jdbcType=VARCHAR}
     </update>
