@@ -5,7 +5,7 @@ import java.util.Date;
 public class Query {
     private String id;
     private String queryId;
-    private String queryName;
+    private String queryName; //topic & datasource
     private String dimension;
     private String metric;
     private String userId;

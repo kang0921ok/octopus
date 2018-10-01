@@ -15,24 +15,44 @@ public class AdminServerService {
     @Autowired
     private AdminServerMapper adminServerMapper;
 
-    public boolean createAdminServer(AdminServer adminServer) {
+    public boolean upsertAdminServer(AdminServer adminServer) throws NoMandatoryKeyException {
+        List<AdminServer> adminServerList = findAdminServerList();
+        boolean isExist = false;
+        for (AdminServer as : adminServerList) {
+            if (as.getAdminServerType() == adminServer.getAdminServerType()) {
+                isExist = true;
+                adminServer.setId(as.getId());
+                break;
+            }
+        }
+
+        if (isExist) {
+            modifyAdminServer(adminServer);
+        } else {
+            createAdminServer(adminServer);
+        }
+
+        return true;
+    }
+
+    public List<AdminServer> findAdminServerList() {
+        return adminServerMapper.selectList();
+    }
+
+    protected boolean createAdminServer(AdminServer adminServer) {
         int insertNum = adminServerMapper.insert(adminServer);
 
         return insertNum == 1 ? true : false;
     }
 
-    public boolean modifyAdminServer(AdminServer adminServer) throws NoMandatoryKeyException {
-        if(StringUtils.isBlank(adminServer.getId())){
+    protected boolean modifyAdminServer(AdminServer adminServer) throws NoMandatoryKeyException {
+        if (StringUtils.isBlank(adminServer.getId())) {
             throw new NoMandatoryKeyException("id");
         }
 
         int modifyNum = adminServerMapper.update(adminServer);
 
         return modifyNum == 1 ? true : false;
-    }
-
-    public List<AdminServer> findAdminServerList() {
-        return adminServerMapper.selectList();
     }
 
     public AdminServer findKafkaServer() {

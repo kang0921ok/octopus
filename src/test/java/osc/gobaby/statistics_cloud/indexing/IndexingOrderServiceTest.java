@@ -36,11 +36,11 @@ public class IndexingOrderServiceTest {
         overlordServer.setPort("8090");
 
         AdminServer kafkaServer = new AdminServer();
-        kafkaServer.setName("wikipedia3");
         kafkaServer.setIp("dev-nsp-stats02-ncl.nfra.io");
         kafkaServer.setPort("6667");
 
         Query query = new Query();
+        query.setQueryName("wikipedia3");
         query.setDimension("channel,cityName,comment,countryIsoCode,countryName,isAnonymous,isMinor,isNew,isRobot,isUnpatrolled,metroCode,namespace,page,regionIsoCode,regionName,user");
         query.setMetric("");
 
