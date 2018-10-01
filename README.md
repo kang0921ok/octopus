@@ -24,7 +24,7 @@ Octopus connects the user with the statistics system. Also it supports multi ten
 Below figures show data flow of Octopus.
 
 1. Store data
-<img src="https://user-images.githubusercontent.com/16604419/46259393-c8e06600-c513-11e8-879e-8bac81122cce.png"></img>
+<img src="https://user-images.githubusercontent.com/16604419/46290219-2d5bfd80-c5c6-11e8-879d-1602ade4660f.png"></img>
 
 2. Query Data
 <img src="https://user-images.githubusercontent.com/16604419/46259397-d0a00a80-c513-11e8-8bd0-65a4deea28a4.png"></img>
