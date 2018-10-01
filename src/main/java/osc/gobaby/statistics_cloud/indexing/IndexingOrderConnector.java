@@ -13,7 +13,7 @@ import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
 public class IndexingOrderConnector {
     private static final Logger LOG = Logger.getLogger(IndexingOrderConnector.class);
 
-    public boolean requestIndexingOrder(AdminServer overlordServer, String requestBody) {
+    public boolean requestCreateIndexingJob(AdminServer overlordServer, String requestBody) {
         try {
             RestTemplate restTemplate = new RestTemplate();
 
@@ -31,7 +31,30 @@ public class IndexingOrderConnector {
         return true;
     }
 
+    public boolean requestDeleteIndexingJob(AdminServer overlordServer, String queryName) {
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity entity = new HttpEntity(null, headers);
+
+            String url = createDeleteIndexingJobUrl(overlordServer, queryName);
+            ResponseEntity<String> respone = restTemplate.postForEntity(url, entity, String.class);
+        } catch (Exception e) {
+            LOG.error(e);
+            return false;
+        }
+
+        return true;
+    }
+
     private String createOverlordUrl(AdminServer overlordServer) {
         return "http://" + overlordServer.getIp() + ":" + overlordServer.getPort() + "/druid/indexer/v1/supervisor";
+    }
+
+    private String createDeleteIndexingJobUrl(AdminServer overlordServer, String supervisorId) {
+        return "http://" + overlordServer.getIp() + ":" + overlordServer.getPort() + "/druid/indexer/v1/supervisor/"+ supervisorId + "/shutdown";
     }
 }

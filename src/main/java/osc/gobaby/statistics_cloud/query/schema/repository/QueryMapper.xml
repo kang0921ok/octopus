@@ -3,12 +3,12 @@
 <mapper namespace="osc.gobaby.statistics_cloud.query.schema.repository.QueryMapper">
 
     <resultMap id="QueryResultMap" type="osc.gobaby.statistics_cloud.query.schema.entity.Query">
-        <id column="query_id" jdbcType="VARCHAR" property="queryId"/>
         <id column="query_nm" jdbcType="VARCHAR" property="queryName"/>
         <id column="dimension" jdbcType="VARCHAR" property="dimension"/>
         <id column="metric" jdbcType="VARCHAR" property="metric"/>
         <id column="user_id" jdbcType="VARCHAR" property="userId"/>
         <id column="update_date" jdbcType="DATE" property="updateDate"/>
+        <id column="start_indexing" jdbcType="DECIMAL" javaType="java.lang.Boolean" property="startIndexing"/>
     </resultMap>
 
     <select id="selectOne" parameterType="String" resultMap="QueryResultMap">
@@ -16,7 +16,7 @@
         *
         from
         query
-        where query_id = #{queryId,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
     </select>
 
     <select id="selectList" resultMap="QueryResultMap">
@@ -42,12 +42,12 @@
         )
         values
         (
-        #{queryId,jdbcType=VARCHAR},
         #{queryName,jdbcType=VARCHAR},
         #{dimension,jdbcType=VARCHAR},
         #{metric,jdbcType=VARCHAR},
         #{userId,jdbcType=VARCHAR},
-        now()
+        now(),
+        #{startIndexing,jdbcType=DECIMAL}
         )
     </insert>
 
@@ -55,23 +55,23 @@
         update
         query
         SET
-        query_id = #{queryId, jdbcType=VARCHAR},
         query_nm = #{queryName, jdbcType=VARCHAR},
         dimension = #{dimension, jdbcType=VARCHAR},
         metric = #{metric, jdbcType=VARCHAR},
         user_id = #{userId, jdbcType=VARCHAR},
-        update_date = now()
+        update_date = now(),
+        start_indexing = #{startIndexing,jdbcType=DECIMAL}
         WHERE
         id = #{id, jdbcType=VARCHAR}
     </update>
 
     <sql id="base_column_list">
-        query_id,
         query_nm,
         dimension,
         metric,
         user_id,
-        update_date
+        update_date,
+        start_indexing
     </sql>
 
 </mapper>
