@@ -77,7 +77,8 @@ controlIndexingJob = function (userId) {
             document.getElementById("_octopus-query-schema-start-indexing-btn").innerText =
                 querySchemaModel.startIndexing ? "Delete Indexing" : "Start Indexing";
 
-            this.initKafkaInfoFiled(data.body.ip, data.body.port);
+            this.initLogStash(userId);
+
 
         } else {
             var errorMessage = data.message ? "save fail. message : " + data.message : "save fail. retry please";
@@ -88,17 +89,23 @@ controlIndexingJob = function (userId) {
     });
 };
 
-initKafkaInfoFiled = function(ip, port){
-    document.getElementById("_octopus-kafka-topic").value =
+initLogStashField = function (data) {
+    document.getElementById("_octopus-logstash-query-name").value =
         querySchemaModel.startIndexing ? querySchemaModel.queryName : "";
 
-    document.getElementById("_octopus-kafka-url").value =
-        querySchemaModel.startIndexing ? ip + ":" + port : "";
-}
+    document.getElementById("_octopus-logstash-secretKey").value =
+        querySchemaModel.startIndexing ? data.secretKey : "";
 
-initRegistdKafka = function (userId) {
+    document.getElementById("_octopus-logstash-url").value =
+        querySchemaModel.startIndexing ? data.url : "";
+
+    document.getElementById("_octopus-logstash-example").value =
+        querySchemaModel.startIndexing ? data.example : "";
+};
+
+initLogStash = function (userId) {
     $.ajax({
-        url: "/api/v1.0/query/indexing/kafka/" + userId,
+        url: "/api/v1.0/logstash/" + userId + "/" + querySchemaModel.queryName,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -106,10 +113,10 @@ initRegistdKafka = function (userId) {
         if (data.code == "success") {
             var body = data.body;
             if (body) {
-                this.initKafkaInfoFiled(data.body.ip, data.body.port);
+                this.initLogStashField(body);
             }
         } else {
-            var errorMessage = data.message ? "find query schema fail. message : " + data.message : "find query schema fail. retry please";
+            var errorMessage = data.message ? "init LogStash fail. message : " + data.message : "init LogStash fail. retry please";
             console.log(errorMessage);
         }
     }.bind(this)).fail(function () {
@@ -141,7 +148,7 @@ initField = function (userId) {
                 this.initFieldValue(body[0]);
 
                 if (querySchemaModel.startIndexing) {
-                    this.initRegistdKafka(userId);
+                    this.initLogStash(userId);
                 }
             }
         } else {

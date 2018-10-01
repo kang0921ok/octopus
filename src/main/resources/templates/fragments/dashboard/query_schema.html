@@ -45,21 +45,45 @@
 			<button type="button" class="btn btn-primary btn-lg btn-block"
 					id="_octopus-query-schema-start-indexing-btn">Start Indexing</button>
 		</div>
+	</div>
+
+	<hr>
+
+	<div class="connection_unit">
+		<h1>Log Stash</h1>
 		<div class="form-group">
-			<label for="_octopus-kafka-topic" class="cols-sm-2 control-label">Kafka Topic</label>
+			<label for="_octopus-logstash-query-name" class="cols-sm-2 control-label">queryName</label>
 			<div class="cols-sm-10">
 				<div class="input-group">
-					<input type="text" class="form-control" id="_octopus-kafka-topic"
+					<input type="text" class="form-control" id="_octopus-logstash-query-name"
 						   placeholder="You have to Start Indexing" readonly />
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="_octopus-kafka-url" class="cols-sm-2 control-label">Kafka URL</label>
+			<label for="_octopus-logstash-secretKey" class="cols-sm-2 control-label">secretKey</label>
 			<div class="cols-sm-10">
 				<div class="input-group">
-					<input type="text" class="form-control" id="_octopus-kafka-url"
+					<input type="text" class="form-control" id="_octopus-logstash-secretKey"
 						   placeholder="You have to Start Indexing" readonly />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-logstash-url" class="cols-sm-2 control-label">Log Stash URL</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-logstash-url"
+						   placeholder="You have to Start Indexing" readonly />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-logstash-example" class="cols-sm-2 control-label">Log Stash Example</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<textarea class="form-control" id="_octopus-logstash-example"
+						   placeholder="You have to Start Indexing" readonly rows="30" cols="50"></textarea>
 				</div>
 			</div>
 		</div>
