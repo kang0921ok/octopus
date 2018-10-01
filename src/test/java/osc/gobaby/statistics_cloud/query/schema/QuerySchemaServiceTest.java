@@ -25,7 +25,6 @@ public class QuerySchemaServiceTest {
     public void createQueryTest(){
         // given
         Query query = new Query();
-        query.setQueryId("testId");
         query.setDimension("g,f,g");
         query.setMetric("g,d,f");
 
@@ -40,7 +39,6 @@ public class QuerySchemaServiceTest {
     public void findAdminServerListTest(){
         // given
         Query query = new Query();
-        query.setQueryId("testId");
         query.setDimension("g,f,g");
         query.setMetric("g,d,f");
 

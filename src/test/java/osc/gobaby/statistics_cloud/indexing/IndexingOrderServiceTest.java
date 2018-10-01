@@ -45,7 +45,7 @@ public class IndexingOrderServiceTest {
         query.setMetric("");
 
         // when
-        indexingOrderService.indexingOrder(overlordServer, kafkaServer, query);
+        indexingOrderService.startIndexing(overlordServer, kafkaServer, query);
 
         // then
     }

@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Query {
     private String id;
-    private String queryId;
     private String queryName; //topic & datasource
     private String dimension;
     private String metric;
     private String userId;
     private Date updateDate;
+    private boolean startIndexing = false;
 
     public String getId() {
         return id;
@@ -17,14 +17,6 @@ public class Query {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getQueryId() {
-        return queryId;
-    }
-
-    public void setQueryId(String queryId) {
-        this.queryId = queryId;
     }
 
     public String getQueryName() {
@@ -65,5 +57,13 @@ public class Query {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public boolean isStartIndexing() {
+        return startIndexing;
+    }
+
+    public void setStartIndexing(boolean startIndexing) {
+        this.startIndexing = startIndexing;
     }
 }
