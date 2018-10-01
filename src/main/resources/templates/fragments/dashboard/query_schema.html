@@ -1,32 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div class="_octopus-contents-container" th:fragment="contentFragment">
-	<div class="form-group">
-		<label for="_octopus-email" class="cols-sm-2 control-label">Dimension</label>
-		<div class="cols-sm-10">
-			<div class="input-group">
-				<input type="text" class="form-control" id="_octopus-email"
-					placeholder="Enter your Dimension" />
+<div id="_octopus-contents-container" th:fragment="contentFragment">
+	<div class="connection_unit">
+		<h1>Query Schema</h1>
+		<div class="form-group">
+			<label for="_octopus-query-schema-name" class="cols-sm-2 control-label">QUERY_SCHEMA_NAME</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-query-schema-name"
+						   placeholder="Enter query schema name" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-dimension" class="cols-sm-2 control-label">Dimension</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-dimension"
+						   placeholder="Enter your Dimension" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-metric" class="cols-sm-2 control-label">Metric</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-metric"
+						   placeholder="Enter your Metric" />
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="form-group">
-		<label for="_octopus-password" class="cols-sm-2 control-label">Metric</label>
-		<div class="cols-sm-10">
-			<div class="input-group">
-				<input type="password" class="form-control" id="_octopus-password"
-					placeholder="Enter your Metric" />
-			</div>
-		</div>
-	</div>
-
-	<div class="form-group button-container">
-		<button type="button"
-			class="btn btn-primary btn-lg btn-block login-button"
-			id="_octopus-join-btn">Update</button>
+	<div class="form-group ">
 		<button type="button" class="btn btn-primary btn-lg btn-block"
-			id="_octopus-join-btn">Save</button>
+			id="_octopus-query-schema-save-btn">Update & Save</button>
 	</div>
+
+	<hr>
+
+	<div class="connection_unit">
+		<h1>Indexing Control</h1>
+		<div class="form-group ">
+			<button type="button" class="btn btn-primary btn-lg btn-block"
+					id="_octopus-query-schema-start-indexing-btn">Start Indexing</button>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-kafka-topic" class="cols-sm-2 control-label">Kafka Topic</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-kafka-topic"
+						   placeholder="You have to Start Indexing" readonly />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-kafka-url" class="cols-sm-2 control-label">Kafka URL</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-kafka-url"
+						   placeholder="You have to Start Indexing" readonly />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+	<script src="/resources/js/querySchema.js"></script>
 </div>
 </html>
