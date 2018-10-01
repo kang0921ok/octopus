@@ -5,15 +5,21 @@
 
 		<!-- User용 sidebar -->
 		<ul class="nav flex-column">
-			<li class="nav-item nav-item-main"><a class="nav-link" href="#">
+			<li class="nav-item nav-item-main">
+				<a class="nav-link" href="#">
 					<span data-feather="user"></span> User
-			</a></li>
-			<li class="nav-item nav-item-sub"><a class="nav-link"
-				href="/dashboard/query_schema"> <span data-feather="settings"></span> Query Schema
-			</a></li>
-			<li class="nav-item nav-item-sub"><a class="nav-link" href="/dashboard/query">
+				</a>
+			</li>
+			<li class="nav-item nav-item-sub">
+				<a class="nav-link" href="/dashboard/query_schema" th:classappend="${menu == 'query_schema' ? 'active':''}">
+					<span data-feather="settings"></span> Query Schema
+				</a>
+			</li>
+			<li class="nav-item nav-item-sub">
+				<a class="nav-link" href="/dashboard/query" th:classappend="${menu == 'query' ? 'active':''}">
 					<span data-feather="settings"></span> Query
-			</a></li>
+				</a>
+			</li>
 		</ul>
 
 		<!-- Admin용 sidebar -->
@@ -21,9 +27,11 @@
 			<li class="nav-item nav-item-main"><a class="nav-link" href="#">
 					<span data-feather="user"></span> Admin
 			</a></li>
-			<li class="nav-item nav-item-sub"><a class="nav-link"
-				href="/dashboard/server"> <span data-feather="settings"></span> Server
-			</a></li>
+			<li class="nav-item nav-item-sub">
+				<a class="nav-link" href="/dashboard/server" th:classappend="${menu == 'server' ? 'active':''}"> 
+					<span data-feather="settings"></span> Server
+				</a>
+			</li>
 		</ul>
 	</div>
 </nav>
