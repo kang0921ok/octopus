@@ -28,13 +28,13 @@ Below figures show data flow of Octopus.
 * spring-boot-2.0.4.RELEASE
 
 ### Installation
-It needs to input below command line to install Statistics Cloud. 
-> Installation command
+```
+git clone https://github.com/kang0921ok/octopus.git
+cd octopus 
+mvn clean install
+java -jar target/octopus-{version}.war
+```
 
-### Usage
-```
-example code
-```
 
 
 ## License
