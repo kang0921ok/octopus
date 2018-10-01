@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>osc.gobaby</groupId>
 	<artifactId>octopus</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-RELEASES</version>
 	<packaging>war</packaging>
 
 	<name>octopus</name>
