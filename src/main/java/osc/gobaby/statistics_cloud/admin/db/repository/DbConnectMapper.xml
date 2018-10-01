@@ -15,37 +15,35 @@
           `user_id` varchar(30) NOT NULL DEFAULT '',
           `user_pwd` varchar(30) DEFAULT '',
           `master` tinyint(1) DEFAULT NULL,
-          `secret_key` int(30) DEFAULT NULL,
+          `secret_key` varchar(500) DEFAULT NULL,
           PRIMARY KEY (`id`),
           UNIQUE KEY `user_id` (`user_id`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+      ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
     </update>
 
     <update id="createServerTable" >
        CREATE TABLE `server` (
           `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
           `server_type` varchar(30) DEFAULT NULL,
-          `server_nm` varchar(30) DEFAULT NULL,
           `server_ip` varchar(30) DEFAULT NULL,
           `server_port` varchar(30) DEFAULT NULL,
-          `server_path` varchar(100) DEFAULT NULL,
           `update_date` date DEFAULT NULL,
           `update_user_id` varchar(30) DEFAULT NULL,
           PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+        ) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
     </update>
 
     <update id="createQueryTable" >
        CREATE TABLE `query` (
           `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `query_id` varchar(30) DEFAULT NULL,
           `query_nm` varchar(30) DEFAULT NULL,
           `dimension` varchar(3000) DEFAULT NULL,
           `metric` varchar(3000) DEFAULT NULL,
           `user_id` varchar(30) DEFAULT NULL,
           `update_date` date DEFAULT NULL,
+          `start_indexing` tinyint(1) DEFAULT NULL,
           PRIMARY KEY (`id`)
-      ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+        ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
     </update>
 
     <insert id="insertAdminUser">

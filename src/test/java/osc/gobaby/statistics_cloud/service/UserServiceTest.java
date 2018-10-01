@@ -27,7 +27,7 @@ public class UserServiceTest {
     public void loginTrueTest(){
         //given
         String userId = "kangtest3";
-        User user = new User(userId, "kangtest3", false, 1234567);
+        User user = new User(userId, "kangtest3", false, "1234567");
 
         //when
         userService.join(user);
@@ -41,7 +41,7 @@ public class UserServiceTest {
     public void loginFalseTest(){
         //given
         String userId = "kangtest3";
-        User user = new User(userId, "kangtest3", false, 1234567);
+        User user = new User(userId, "kangtest3", false, "1234567");
 
         //when
         userService.join(user);
@@ -56,7 +56,7 @@ public class UserServiceTest {
     public void joinTest() {
         //given
         String userId = "kangtest3";
-        User user = new User(userId, "kangtest3", false, 1234567);
+        User user = new User(userId, "kangtest3", false, "1234567");
 
         //when
         userService.join(user);
@@ -70,7 +70,7 @@ public class UserServiceTest {
     public void joinReturnValueTest() {
         //given
         String userId = "kangtest3";
-        User user = new User(userId, "kangtest3", false, 1234567);
+        User user = new User(userId, "kangtest3", false, "1234567");
 
         //when
         boolean actual = userService.join(user);
@@ -83,7 +83,7 @@ public class UserServiceTest {
     public void isDuplicateTest() {
         //given
         String userId = "kangtest3";
-        User user = new User(userId, "kangtest3", false, 1234567);
+        User user = new User(userId, "kangtest3", false, "1234567");
 
         //when
         userService.join(user);

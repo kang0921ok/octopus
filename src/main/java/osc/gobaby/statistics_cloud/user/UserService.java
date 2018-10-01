@@ -2,6 +2,7 @@ package osc.gobaby.statistics_cloud.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import osc.gobaby.statistics_cloud.logstash.entity.LogStash;
 import osc.gobaby.statistics_cloud.user.entity.User;
 import osc.gobaby.statistics_cloud.user.repository.UserMapper;
 
@@ -33,6 +34,15 @@ public class UserService {
 
     public User findUser(String userId) {
         return userMapper.selectOne(userId);
+    }
+
+    public boolean authorize(String userId, String secretKey){
+        User user = userMapper.selectOne(userId);
+        if(user.getSecretKey().equals(secretKey)){
+            return true;
+        }
+
+        return false;
     }
 
     public List<User> findUserList() {
