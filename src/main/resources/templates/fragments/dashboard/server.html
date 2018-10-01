@@ -2,35 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div id="_octopus-contents-container" th:fragment="contentFragment">
 	<div class="connection_unit">
-		<h1>Unit1</h1>
+		<h1>DRUID_OVERLOAD</h1>
 		<div class="form-group">
-			<!-- <label for="_octopus-email" class="cols-sm-2 control-label">Dimension</label> -->
 			<div class="cols-sm-12">
 				<div class="input-group">
-					<select id="_octopus-streaming" class="width-inherit">
-						<option value="druid">druid</option>
+					<select id="_octopus-druid-overlord-select" class="width-inherit">
+						<option value="DRUID_OVERLOAD">DRUID_OVERLOAD</option>
 					</select>
 				</div>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="_octopus-ip" class="cols-sm-2 control-label">IP</label>
+			<label for="_octopus-druid-overlord-ip" class="cols-sm-2 control-label">IP</label>
 			<div class="cols-sm-10">
 				<div class="input-group">
-					<input type="text" class="form-control" id="_octopus-ip"
+					<input type="text" class="form-control" id="_octopus-druid-overlord-ip"
 						placeholder="Enter your IP"
-						value="kang0921ok.c69qhd8qewh9.ap-northeast-2.rds.amazonaws.com" />
+						value="" />
 				</div>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="_octopus-port" class="cols-sm-2 control-label">Port</label>
+			<label for="_octopus-druid-overlord-port" class="cols-sm-2 control-label">Port</label>
 			<div class="cols-sm-10">
 				<div class="input-group">
-					<input type="text" class="form-control" id="_octopus-port"
-						placeholder="Enter your Port" value="3306" />
+					<input type="text" class="form-control" id="_octopus-druid-overlord-port"
+						placeholder="Enter your Port" value="" />
 				</div>
 			</div>
 		</div>
@@ -38,42 +37,83 @@
 		<div class="form-group ">
 			<button type="button"
 				class="btn btn-primary btn-lg btn-block login-button"
-				id="_octopus-join-btn">Connection Test</button>
+				id="_octopus-druid-overlord-connect-btn">Connection Test & Save</button>
+		</div>
+	</div>
+	
+	<hr>
+
+	<div class="connection_unit">
+		<h1>DRUID_BROKER</h1>
+		<div class="form-group">
+			<div class="cols-sm-12">
+				<div class="input-group">
+					<select id="_octopus-druid-broker-select" class="width-inherit">
+						<option value="DRUID_BROKER">DRUID_BROKER</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="_octopus-druid-broker-ip" class="cols-sm-2 control-label">IP</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-druid-broker-ip"
+						   placeholder="Enter your IP"
+						   value="" />
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="_octopus-druid-broker-port" class="cols-sm-2 control-label">Port</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-druid-broker-port"
+						   placeholder="Enter your Port" value="" />
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group ">
+			<button type="button"
+					class="btn btn-primary btn-lg btn-block login-button"
+					id="_octopus-druid-broker-connect-btn">Connection Test & Save</button>
 		</div>
 	</div>
 	
 	<hr>
 	
 	<div class="connection_unit">
-		<h1>Unit2</h1>
+		<h1>KAFKA</h1>
 		<div class="form-group">
-			<!-- <label for="_octopus-email" class="cols-sm-2 control-label">Dimension</label> -->
 			<div class="cols-sm-12">
 				<div class="input-group">
-					<select id="_octopus-streaming" class="width-inherit">
-						<option value="kafka">kafka</option>
+					<select id="_octopus-kafka-select" class="width-inherit">
+						<option value="KAFKA">KAFKA</option>
 					</select>
 				</div>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="_octopus-ip" class="cols-sm-2 control-label">IP</label>
+			<label for="_octopus-kafka-ip" class="cols-sm-2 control-label">IP</label>
 			<div class="cols-sm-10">
 				<div class="input-group">
-					<input type="text" class="form-control" id="_octopus-ip"
+					<input type="text" class="form-control" id="_octopus-kafka-ip"
 						placeholder="Enter your IP"
-						value="kang0921ok.c69qhd8qewh9.ap-northeast-2.rds.amazonaws.com" />
+						value="" />
 				</div>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="_octopus-port" class="cols-sm-2 control-label">Port</label>
+			<label for="_octopus-kafka-port" class="cols-sm-2 control-label">Port</label>
 			<div class="cols-sm-10">
 				<div class="input-group">
-					<input type="text" class="form-control" id="_octopus-port"
-						placeholder="Enter your Port" value="3306" />
+					<input type="text" class="form-control" id="_octopus-kafka-port"
+						placeholder="Enter your Port" value="" />
 				</div>
 			</div>
 		</div>
@@ -81,7 +121,7 @@
 		<div class="form-group ">
 			<button type="button"
 				class="btn btn-primary btn-lg btn-block login-button"
-				id="_octopus-join-btn">Connection Test</button>
+				id="_octopus-kafka-connect-btn">Connection Test & Save</button>
 		</div>
 	</div>
 </div>

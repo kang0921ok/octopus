@@ -25,7 +25,7 @@ public class IndexingOrderService {
     public boolean indexingOrder(AdminServer overlordServer, AdminServer kafkaServer, Query query) {
         // indexing service 요청
         // dimension, metric, ip, port
-        String dataSource = kafkaServer.getName();
+        String dataSource = query.getQueryName();
 
         List<String> dimensionList = Arrays.asList(query.getDimension().split(","));
 
@@ -43,7 +43,7 @@ public class IndexingOrderService {
             }
         }
 
-        String topic = kafkaServer.getName();
+        String topic = query.getQueryName();
 
         String kafkaBroker = kafkaServer.getIp() + ":" + kafkaServer.getPort();
 

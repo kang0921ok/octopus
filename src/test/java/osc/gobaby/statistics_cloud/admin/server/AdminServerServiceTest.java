@@ -26,10 +26,8 @@ public class AdminServerServiceTest {
         // given
         AdminServer adminServer = new AdminServer();
         adminServer.setAdminServerType(AdminServerType.KAFKA);
-        adminServer.setName("카프카 인덱싱");
         adminServer.setIp("211.123.45.2");
         adminServer.setPort("8080");
-        adminServer.setPath("/good");
         adminServer.setUpdateUserId("kang");
 
         // when
@@ -44,10 +42,8 @@ public class AdminServerServiceTest {
         // given
         AdminServer adminServer = new AdminServer();
         adminServer.setAdminServerType(AdminServerType.KAFKA);
-        adminServer.setName("카프카 인덱싱");
         adminServer.setIp("211.123.45.2");
         adminServer.setPort("8080");
-        adminServer.setPath("/good");
         adminServer.setUpdateUserId("kang");
 
         adminServerService.createAdminServer(adminServer);

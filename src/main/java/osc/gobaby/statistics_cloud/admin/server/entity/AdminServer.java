@@ -5,10 +5,8 @@ import java.util.Date;
 public class AdminServer {
     private String id;
     private AdminServerType adminServerType;
-    private String name; //kafka - topic
     private String ip;
     private String port;
-    private String path;
     private Date updateDate;
     private String updateUserId;
 
@@ -28,14 +26,6 @@ public class AdminServer {
         this.adminServerType = adminServerType;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getIp() {
         return ip;
     }
@@ -50,14 +40,6 @@ public class AdminServer {
 
     public void setPort(String port) {
         this.port = port;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public Date getUpdateDate() {

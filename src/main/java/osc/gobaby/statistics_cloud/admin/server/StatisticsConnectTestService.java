@@ -1,22 +1,33 @@
 package osc.gobaby.statistics_cloud.admin.server;
 
 import org.springframework.stereotype.Service;
-import osc.gobaby.statistics_cloud.admin.server.entity.ConnectEntity;
+import osc.gobaby.statistics_cloud.admin.server.entity.AdminServer;
+import osc.gobaby.statistics_cloud.admin.server.entity.AdminServerType;
 
 @Service
 public class StatisticsConnectTestService {
 
-    public boolean connectTestKafka(ConnectEntity connectEntity){
+    public boolean connectTest(AdminServer adminServer){
+        if(adminServer.getAdminServerType() == AdminServerType.DRUID_OVERLOAD){
+            return connectTestDruidOverlord(adminServer);
+        } else if(adminServer.getAdminServerType() == AdminServerType.DRUID_BROKER){
+            return connectTestDruidBroker(adminServer);
+        } else {
+            return connectTestKafka(adminServer);
+        }
+    }
+
+    private boolean connectTestKafka(AdminServer adminServer){
 
         return true;
     }
 
-    public boolean connectTestDruidOverlord(ConnectEntity connectEntity){
+    private boolean connectTestDruidOverlord(AdminServer adminServer){
 
         return true;
     }
 
-    public boolean connectTestDruidBroker(ConnectEntity connectEntity){
+    private boolean connectTestDruidBroker(AdminServer adminServer){
 
         return true;
     }
