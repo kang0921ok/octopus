@@ -34,6 +34,12 @@ public class AdminServerController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/server/druid/broker", method = RequestMethod.GET)
+    public ApiResponse findDruidBrokerServer() {
+        return ApiResponseFactory.createSuccess(adminServerService.findDruidBrokerServer());
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/server", method = RequestMethod.POST)
     public ApiResponse createServer(@RequestBody AdminServer adminServer) throws NoMandatoryKeyException {
         boolean isConnectTest = connectTestService.connectTest(adminServer);

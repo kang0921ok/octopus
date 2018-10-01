@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <div class="_octopus-contents-container" th:fragment="contentFragment">
-	<div class="form-group">
-		<h2 class="cols-sm-12 control-label">Dimension</h2>
-		<label for="_octopus-dimenstion_name" class="cols-sm-12 control-label">Name</label>
-		<div class="cols-sm-6">
-			<div class="input-group">
-				<input type="text" class="form-control" id="_octopus-dimenstion_name"
-					placeholder="Enter Name" />
+	<div class="connection_unit">
+		<h1>Query Schema</h1>
+		<div class="form-group">
+			<label for="_octopus-query-schema-name" class="cols-sm-2 control-label">QUERY_SCHEMA_NAME</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-query-schema-name"
+						   placeholder="" readonly/>
+				</div>
 			</div>
 		</div>
-		<label for="_octopus-dimenstion_type" class="cols-sm-12 control-label">Type</label>
-		<div class="cols-sm-6">
-			<div class="input-group">
-				<input type="text" class="form-control" id="_octopus-dimenstion_type"
-					placeholder="Enter Type" />
+		<div class="form-group">
+			<label for="_octopus-dimension" class="cols-sm-2 control-label">Dimension</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-dimension"
+						   placeholder="" readonly/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-metric" class="cols-sm-2 control-label">Metric</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-metric"
+						   placeholder="" readonly/>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<h2 class="cols-sm-12 control-label">Metric</h2>
-		<label for="_octopus-metric_amount" class="cols-sm-12 control-label">Amount</label>
+		<h2 class="cols-sm-12 control-label">Broker</h2>
+		<label for="_octopus-druid-broker-url" class="cols-sm-12 control-label">Broker Url</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
-				<input type="text" class="form-control" id="_octopus-metric_amount"
-					placeholder="Enter Amount" />
+				<input type="text" class="form-control" id="_octopus-druid-broker-url"
+					placeholder="" readonly/>
 			</div>
 		</div>
-		<label for="_octopus-metric_date" class="cols-sm-2 control-label">Date</label>
+		<label for="_octopus-native-query" class="cols-sm-2 control-label">Native Query</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
-				<input type="text" class="form-control" id="_octopus-metric_date"
-					placeholder="Enter Date" />
+				<textarea class="form-control" id="_octopus-native-query"
+						  placeholder="Enter Native Query" rows="30" cols="50" style="margin-top: 0px; margin-bottom: 0px; height: 327px;"></textarea>
+			</div>
+		</div>
+
+		<div class="form-group ">
+			<button type="button" class="btn btn-primary btn-lg btn-block"
+					id="_octopus-query-request-btn">Native Query</button>
+		</div>
+
+		<label for="_octopus-native-query-result" class="cols-sm-2 control-label">Native Query Result</label>
+		<div class="cols-sm-10">
+			<div class="input-group">
+				<textarea class="form-control" id="_octopus-native-query-result"
+						  placeholder="" rows="30" cols="50"></textarea>
 			</div>
 		</div>
 	</div>
+	<script src="/resources/js/query.js"></script>
 </div>
 </html>
