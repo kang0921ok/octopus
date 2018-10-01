@@ -10,13 +10,13 @@
 <title>Dashboard-${menu}</title>
 </head>
 <body>
-	<div class="container">
+	<div class="">
 		<div th:replace="fragments/dashboard/navbar :: navbarFragment"></div>
 
 		<div class="container-fluid">
 			<div th:replace="fragments/dashboard/sidebar :: sidebarFragment" class="row"></div>
-				<div layout:fragment="content">
-				<div 
+				<div layout:fragment="content" class="_octopus-container">
+				<div
 					th:replace="@{'fragments/dashboard/' + ${menu}} :: contentFragment" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">	
 				<div
 					id="_octopus-contents-area"
