@@ -1,11 +1,11 @@
-package osc.gobaby.octopus.query.schema;
+package osc.gobaby.octopus.service.query.schema;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import osc.gobaby.octopus.exception.NoMandatoryKeyException;
-import osc.gobaby.octopus.query.schema.entity.Query;
-import osc.gobaby.octopus.query.schema.repository.QueryMapper;
+import osc.gobaby.octopus.service.query.schema.entity.Query;
+import osc.gobaby.octopus.service.query.schema.repository.QueryMapper;
 
 import java.util.List;
 

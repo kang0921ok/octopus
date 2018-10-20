@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="osc.gobaby.octopus.query.schema.repository.QueryMapper">
+<mapper namespace="osc.gobaby.octopus.service.query.schema.repository.QueryMapper">
 
-    <resultMap id="QueryResultMap" type="osc.gobaby.octopus.query.schema.entity.Query">
+    <resultMap id="QueryResultMap" type="osc.gobaby.octopus.service.query.schema.entity.Query">
         <id column="query_nm" jdbcType="VARCHAR" property="queryName"/>
         <id column="dimension" jdbcType="VARCHAR" property="dimension"/>
         <id column="metric" jdbcType="VARCHAR" property="metric"/>
@@ -34,7 +34,7 @@
         where user_id = #{userId,jdbcType=VARCHAR}
     </select>
 
-    <insert id="insert" parameterType="osc.gobaby.octopus.query.schema.entity.Query">
+    <insert id="insert" parameterType="osc.gobaby.octopus.service.query.schema.entity.Query">
         insert
         into query
         (
@@ -51,7 +51,7 @@
         )
     </insert>
 
-    <update id="update" parameterType="osc.gobaby.octopus.query.schema.entity.Query">
+    <update id="update" parameterType="osc.gobaby.octopus.service.query.schema.entity.Query">
         update
         query
         SET

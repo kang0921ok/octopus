@@ -1,4 +1,4 @@
-package osc.gobaby.octopus.query.schema.entity;
+package osc.gobaby.octopus.service.query.schema.entity;
 
 import java.util.Date;
 

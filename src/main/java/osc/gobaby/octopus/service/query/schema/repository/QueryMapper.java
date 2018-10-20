@@ -1,7 +1,7 @@
-package osc.gobaby.octopus.query.schema.repository;
+package osc.gobaby.octopus.service.query.schema.repository;
 
 
-import osc.gobaby.octopus.query.schema.entity.Query;
+import osc.gobaby.octopus.service.query.schema.entity.Query;
 import osc.gobaby.octopus.support.BaseMapper;
 
 import java.util.List;

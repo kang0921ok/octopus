@@ -10,8 +10,8 @@ import osc.gobaby.octopus.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseType;
 import osc.gobaby.octopus.exception.NoMandatoryKeyException;
 import osc.gobaby.octopus.service.indexing.IndexingOrderService;
-import osc.gobaby.octopus.query.schema.QuerySchemaService;
-import osc.gobaby.octopus.query.schema.entity.Query;
+import osc.gobaby.octopus.service.query.schema.QuerySchemaService;
+import osc.gobaby.octopus.service.query.schema.entity.Query;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..

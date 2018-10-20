@@ -1,4 +1,4 @@
-package osc.gobaby.octopus.query.visual.entity;
+package osc.gobaby.octopus.service.query.visual.entity;
 
 public class NativeQuery {
     private String nativeQuery;

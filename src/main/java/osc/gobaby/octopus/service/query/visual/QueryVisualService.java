@@ -1,4 +1,4 @@
-package osc.gobaby.octopus.query.visual;
+package osc.gobaby.octopus.service.query.visual;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

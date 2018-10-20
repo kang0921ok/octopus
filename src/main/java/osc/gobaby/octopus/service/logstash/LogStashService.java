@@ -12,7 +12,7 @@ import osc.gobaby.octopus.service.admin.server.AdminServerService;
 import osc.gobaby.octopus.service.admin.server.entity.AdminServer;
 import osc.gobaby.octopus.service.logstash.entity.LogStash;
 import osc.gobaby.octopus.service.logstash.entity.LogStashInit;
-import osc.gobaby.octopus.query.schema.QuerySchemaService;
+import osc.gobaby.octopus.service.query.schema.QuerySchemaService;
 import osc.gobaby.octopus.service.user.UserService;
 import osc.gobaby.octopus.service.user.entity.User;
 

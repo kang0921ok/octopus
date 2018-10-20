@@ -1,4 +1,4 @@
-package osc.gobaby.octopus.query.visual;
+package osc.gobaby.octopus.service.query.visual;
 
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpEntity;

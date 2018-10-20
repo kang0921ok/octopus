@@ -13,8 +13,8 @@ import osc.gobaby.octopus.service.indexing.entity.metrics.MetricsSpec;
 import osc.gobaby.octopus.service.indexing.entity.metrics.MetricsSpecCount;
 import osc.gobaby.octopus.service.indexing.entity.metrics.MetricsSpecField;
 import osc.gobaby.octopus.service.indexing.entity.metrics.MetricsType;
-import osc.gobaby.octopus.query.schema.QuerySchemaService;
-import osc.gobaby.octopus.query.schema.entity.Query;
+import osc.gobaby.octopus.service.query.schema.QuerySchemaService;
+import osc.gobaby.octopus.service.query.schema.entity.Query;
 
 import java.util.ArrayList;
 import java.util.Arrays;
