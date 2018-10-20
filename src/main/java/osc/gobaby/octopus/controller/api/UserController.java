@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import osc.gobaby.octopus.controller.api.vo.ApiResponse;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseType;
-import osc.gobaby.octopus.user.entity.User;
-import osc.gobaby.octopus.user.UserService;
+import osc.gobaby.octopus.service.user.entity.User;
+import osc.gobaby.octopus.service.user.UserService;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..

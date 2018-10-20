@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import osc.gobaby.octopus.admin.server.AdminServerService;
-import osc.gobaby.octopus.admin.server.StatisticsConnectTestService;
-import osc.gobaby.octopus.admin.server.entity.AdminServer;
+import osc.gobaby.octopus.service.admin.server.AdminServerService;
+import osc.gobaby.octopus.service.admin.server.StatisticsConnectTestService;
+import osc.gobaby.octopus.service.admin.server.entity.AdminServer;
 import osc.gobaby.octopus.controller.api.vo.ApiResponse;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseType;
-import osc.gobaby.octopus.controller.exception.NoMandatoryKeyException;
+import osc.gobaby.octopus.exception.NoMandatoryKeyException;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..
