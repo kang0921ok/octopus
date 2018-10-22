@@ -33,7 +33,10 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
  
         ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-//        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        
+        if (user.isMaster() != null && user.isMaster()) {
+        	authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
         return new UsernamePasswordAuthenticationToken(user, null, authorities);
     }
  
