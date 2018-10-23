@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        	.antMatchers("/resources/css/**", "/resources/js/**", "/resources/image/**", "/",
 	        				 "/user/**", "/api/**/user/login", "/api/**/user/join").permitAll()
 	        	.antMatchers("/dashboard/**").hasRole("USER")
+	        	.antMatchers("/api/v1.0/admin/server/druid/broker").hasRole("USER")
 	        	.antMatchers("/api/**/admin/**", "/dashboard/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
