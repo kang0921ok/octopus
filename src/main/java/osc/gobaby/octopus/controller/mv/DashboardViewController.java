@@ -19,5 +19,11 @@ public class DashboardViewController {
 		model.addAttribute("menu", menu);
 		return "dashboard";
 	}
+
+	@RequestMapping("/dashboard/admin/{menu}")
+	public String dashboardAdmin(@PathVariable String menu, Model model) {
+		model.addAttribute("menu", menu);
+		return "dashboard";
+	}
 	
 }

@@ -23,16 +23,18 @@
 		</ul>
 
 		<!-- Admin용 sidebar -->
-		<ul class="nav flex-column">
-			<li class="nav-item nav-item-main"><a class="nav-link" href="#">
-					<span data-feather="user"></span> Admin
-			</a></li>
-			<li class="nav-item nav-item-sub">
-				<a class="nav-link" href="/dashboard/server" th:classappend="${menu == 'server' ? 'active':''}"> 
-					<span data-feather="settings"></span> Server
-				</a>
-			</li>
-		</ul>
+		<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<ul class="nav flex-column">
+				<li class="nav-item nav-item-main"><a class="nav-link" href="#">
+						<span data-feather="user"></span> Admin
+				</a></li>
+				<li class="nav-item nav-item-sub">
+					<a class="nav-link" href="/dashboard/admin/server" th:classappend="${menu == 'server' ? 'active':''}">
+						<span data-feather="settings"></span> Server
+					</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </nav>
 </html>

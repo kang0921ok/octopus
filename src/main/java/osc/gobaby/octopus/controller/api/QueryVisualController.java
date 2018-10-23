@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import osc.gobaby.octopus.controller.api.vo.ApiResponse;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseFactory;
-import osc.gobaby.octopus.query.visual.QueryVisualService;
-import osc.gobaby.octopus.query.visual.entity.NativeQuery;
+import osc.gobaby.octopus.service.query.visual.QueryVisualService;
+import osc.gobaby.octopus.service.query.visual.entity.NativeQuery;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..

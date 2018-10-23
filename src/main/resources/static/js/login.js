@@ -14,16 +14,18 @@ login = function () {
     $.ajax({
         url: "/api/v1.0/user/login",
         type: "POST",
-        data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(request),
         dataType: "json",
     }).done(function (data) {
+    	console.log(data);
         if (data.code == "success") {
             window.location.href = "/dashboard";
         } else {
             alert("login fail. retry please");
         }
-    }).fail(function () {
+    }).fail(function (xhr) {
+    	console.log(xhr.statusText);
         alert("error");
     });
 };

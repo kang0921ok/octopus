@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import osc.gobaby.octopus.admin.db.DbConnectUtils;
+import osc.gobaby.octopus.service.admin.db.DbConnectUtils;
 import osc.gobaby.octopus.interceptor.DbConnectionInterceptor;
 
 import javax.servlet.http.HttpServletResponse;

@@ -3,15 +3,15 @@ package osc.gobaby.octopus.controller.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import osc.gobaby.octopus.admin.server.AdminServerService;
-import osc.gobaby.octopus.admin.server.entity.AdminServer;
+import osc.gobaby.octopus.service.admin.server.AdminServerService;
+import osc.gobaby.octopus.service.admin.server.entity.AdminServer;
 import osc.gobaby.octopus.controller.api.vo.ApiResponse;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseType;
-import osc.gobaby.octopus.controller.exception.NoMandatoryKeyException;
-import osc.gobaby.octopus.indexing.IndexingOrderService;
-import osc.gobaby.octopus.query.schema.QuerySchemaService;
-import osc.gobaby.octopus.query.schema.entity.Query;
+import osc.gobaby.octopus.exception.NoMandatoryKeyException;
+import osc.gobaby.octopus.service.indexing.IndexingOrderService;
+import osc.gobaby.octopus.service.query.schema.QuerySchemaService;
+import osc.gobaby.octopus.service.query.schema.entity.Query;
 
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..

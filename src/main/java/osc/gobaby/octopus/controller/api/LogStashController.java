@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import osc.gobaby.octopus.controller.api.vo.ApiResponse;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.octopus.controller.api.vo.ApiResponseType;
-import osc.gobaby.octopus.logstash.LogStashService;
-import osc.gobaby.octopus.logstash.entity.LogStash;
-import osc.gobaby.octopus.logstash.entity.LogStashInit;
+import osc.gobaby.octopus.service.logstash.LogStashService;
+import osc.gobaby.octopus.service.logstash.entity.LogStash;
+import osc.gobaby.octopus.service.logstash.entity.LogStashInit;
 
 import javax.servlet.http.HttpServletRequest;
 
