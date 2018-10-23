@@ -103,4 +103,13 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return this.enabled;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userPwd=" + userPwd + ", master=" + master + ", secretKey=" + secretKey
+				+ ", authorities=" + authorities + ", accountNonExpired=" + accountNonExpired + ", accountNonLocked="
+				+ accountNonLocked + ", credentialsNonExpired=" + credentialsNonExpired + ", enabled=" + enabled + "]";
+	}
+	
+	
 }
