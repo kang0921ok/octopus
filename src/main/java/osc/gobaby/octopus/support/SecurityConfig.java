@@ -13,20 +13,20 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	 	@Autowired
-	    private UserAuthenticationProvider authenticationProvider;
-	 	
-	    @Override
-	    protected void configure(HttpSecurity http) throws Exception {
-	    	
-	        http.csrf().disable()
-	        	.authorizeRequests()
-	        	.antMatchers("/resources/css/**", "/resources/js/**", "/resources/image/**", "/",
-	        				 "/user/**", "/api/**/user/login", "/api/**/user/join").permitAll()
-	        	.antMatchers("/dashboard/**").hasRole("USER")
-	        	.antMatchers("/api/v1.0/admin/server/druid/broker").hasRole("USER")
-	        	.antMatchers("/api/**/admin/**", "/dashboard/admin/**").hasRole("ADMIN")
+
+    @Autowired
+    private UserAuthenticationProvider authenticationProvider;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/resources/css/**", "/resources/js/**", "/resources/image/**", "/",
+                        "/user/**", "/api/**/user/login", "/api/**/user/join", "/api/**/logstash").permitAll()
+                .antMatchers("/dashboard/**").hasRole("USER")
+                .antMatchers("/api/v1.0/admin/server/druid/broker").hasRole("USER")
+                .antMatchers("/api/**/admin/**", "/dashboard/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().invalidSessionUrl("/user/login")
@@ -36,10 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/login")
                 .and()
                 .logout().logoutUrl("/user/logout").permitAll();
-	    }
-	    
-	    @Override
-	    protected void configure(AuthenticationManagerBuilder auth) {
-	        auth.authenticationProvider(authenticationProvider);
-	    }
-	}
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(authenticationProvider);
+    }
+}
