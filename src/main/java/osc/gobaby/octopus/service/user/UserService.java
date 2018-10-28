@@ -23,7 +23,7 @@ public class UserService implements UserDetailsService {
     public User login(User user) {
         User sUser = findUser(user.getUserId());
         if (sUser == null) {
-        	return null;
+            return null;
         }
         return user.getUserPwd().equals(sUser.getUserPwd()) ? sUser : null;
     }
@@ -42,9 +42,13 @@ public class UserService implements UserDetailsService {
         return userMapper.selectOne(userId);
     }
 
-    public boolean authorize(String userId, String secretKey){
+    public boolean authorize(String userId, String secretKey) {
         User user = userMapper.selectOne(userId);
-        if(user.getSecretKey().equals(secretKey)){
+        if (user == null || user.getSecretKey() == null) {
+            return false;
+        }
+
+        if (user.getSecretKey().equals(secretKey)) {
             return true;
         }
 
@@ -59,8 +63,8 @@ public class UserService implements UserDetailsService {
         userMapper.update(user);
     }
 
-	@Override
-	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+    @Override
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         return findUser(userId);
-	}
+    }
 }

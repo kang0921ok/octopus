@@ -8,14 +8,19 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import osc.gobaby.octopus.exception.NotMatchException;
+import osc.gobaby.octopus.exception.NotMatchQueryNameException;
+import osc.gobaby.octopus.exception.NotMatchSecretKeyException;
 import osc.gobaby.octopus.service.admin.server.AdminServerService;
 import osc.gobaby.octopus.service.admin.server.entity.AdminServer;
 import osc.gobaby.octopus.service.logstash.entity.LogStash;
 import osc.gobaby.octopus.service.logstash.entity.LogStashInit;
 import osc.gobaby.octopus.service.query.schema.QuerySchemaService;
+import osc.gobaby.octopus.service.query.schema.entity.Query;
 import osc.gobaby.octopus.service.user.UserService;
 import osc.gobaby.octopus.service.user.entity.User;
 
+import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -73,37 +78,51 @@ public class LogStashService {
         return logStashInit;
     }
 
-    public boolean logStash(LogStash logStash) {
+    public boolean logStash(LogStash logStash) throws NotMatchException {
         String userId = logStash.getUserId();
-        if (userService.authorize(userId, logStash.getSecretKey())) {
-            AdminServer kafkaServer = adminServerService.findKafkaServer();
-            String url = kafkaServer.getIp() + ":" + kafkaServer.getPort();
-            String topic = logStash.getQueryName();
 
-            //@TODO 디멘션 체크
+        //user and queryname check
+        if (!validateRegistedQueryName(userId, logStash.getQueryName())) {
+            throw new NotMatchQueryNameException(logStash.getQueryName());
+        }
+
+        //secret key check
+        if (!userService.authorize(userId, logStash.getSecretKey())) {
+            throw new NotMatchSecretKeyException(logStash.getSecretKey());
+        }
+
+        AdminServer kafkaServer = adminServerService.findKafkaServer();
+        String url = kafkaServer.getIp() + ":" + kafkaServer.getPort();
+        String topic = logStash.getQueryName();
+
+        //@TODO 디멘션 체크
 //            Query query = querySchemaService.findQueryForUserIdAndQueryName(userId, queryName);
 //            String dimension = query.getDimension();
 //            if(!validateDimension(logStash, dimension)){
 //                return false;
 //            }
 
-            Producer<String, String> producer = createProducer(url);
+        Producer<String, String> producer = createProducer(url);
 
-            ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
 
-            try {
-                String message = objectMapper.writeValueAsString(logStash.getBody());
-                producer.send(new ProducerRecord<>(topic, message));
+        try {
+            String message = objectMapper.writeValueAsString(logStash.getBody());
+            producer.send(new ProducerRecord<>(topic, message));
 
-                return true;
-            } catch (Exception e) {
-                LOG.error(e);
-            }
-
-            producer.close();
+            return true;
+        } catch (Exception e) {
+            LOG.error(e);
         }
 
-        return false;
+        producer.close();
+
+        return true;
+    }
+
+    private boolean validateRegistedQueryName(String userId, String queryName) {
+        Query query = querySchemaService.findQueryForUserIdAndQueryName(userId, queryName);
+        return query != null ? true : false;
     }
 
     private boolean validateDimension(LogStash logStash, String dimension) {

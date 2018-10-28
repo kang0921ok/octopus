@@ -13,6 +13,8 @@ import osc.gobaby.octopus.service.indexing.IndexingOrderService;
 import osc.gobaby.octopus.service.query.schema.QuerySchemaService;
 import osc.gobaby.octopus.service.query.schema.entity.Query;
 
+import java.security.Principal;
+
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..
  */
@@ -34,13 +36,13 @@ public class QuerySchemaController {
      */
     @ResponseBody
     @RequestMapping(value = "/{userId}", method = RequestMethod.POST)
-    public ApiResponse createQuery(@PathVariable String userId, @RequestBody Query query) throws NoMandatoryKeyException {
+    public ApiResponse createQuery(@PathVariable String userId, @RequestBody Query query, Principal principal) throws NoMandatoryKeyException {
 
-        query.setUserId(userId);
+        query.setUserId(principal.getName());
 
         if (querySchemaService.upsertQuery(query)) {
 
-            return ApiResponseFactory.createSuccess(querySchemaService.findQueryForUserIdAndQueryName(userId, query.getQueryName()));
+            return ApiResponseFactory.createSuccess(querySchemaService.findQueryForUserIdAndQueryName(principal.getName(), query.getQueryName()));
         }
 
         return ApiResponseFactory.createFail(ApiResponseType.FAIL);
@@ -49,8 +51,8 @@ public class QuerySchemaController {
 
     @ResponseBody
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public ApiResponse findQueryListForUserId(@PathVariable String userId) {
-        return ApiResponseFactory.createSuccess(querySchemaService.findQueryListForUserId(userId));
+    public ApiResponse findQueryListForUserId(@PathVariable String userId, Principal principal) {
+        return ApiResponseFactory.createSuccess(querySchemaService.findQueryListForUserId(principal.getName()));
     }
 
     /**
@@ -59,9 +61,9 @@ public class QuerySchemaController {
      */
     @ResponseBody
     @RequestMapping(value = "/indexing/create/{userId}/{queryId}", method = RequestMethod.POST)
-    public ApiResponse createIndexingJob(@PathVariable String userId, @PathVariable String queryId) {
+    public ApiResponse createIndexingJob(@PathVariable String userId, @PathVariable String queryId, Principal principal) {
 
-        AdminServer adminServer = indexingOrderService.createIndexingJob(userId, queryId);
+        AdminServer adminServer = indexingOrderService.createIndexingJob(principal.getName(), queryId);
 
         return adminServer != null ?
                 ApiResponseFactory.createSuccess(adminServer) : ApiResponseFactory.createFail(ApiResponseType.FAIL);
@@ -72,9 +74,9 @@ public class QuerySchemaController {
      */
     @ResponseBody
     @RequestMapping(value = "/indexing/delete/{userId}/{queryId}", method = RequestMethod.POST)
-    public ApiResponse deleteInexingJob(@PathVariable String userId, @PathVariable String queryId) {
+    public ApiResponse deleteInexingJob(@PathVariable String userId, @PathVariable String queryId, Principal principal) {
 
-        AdminServer adminServer = indexingOrderService.deleteIndexingJob(userId, queryId);
+        AdminServer adminServer = indexingOrderService.deleteIndexingJob(principal.getName(), queryId);
 
         return adminServer != null ?
                 ApiResponseFactory.createSuccess(adminServer) : ApiResponseFactory.createFail(ApiResponseType.FAIL);
@@ -82,7 +84,7 @@ public class QuerySchemaController {
 
     @ResponseBody
     @RequestMapping(value = "/indexing/kafka/{userId}", method = RequestMethod.GET)
-    public ApiResponse initRegistdKafka(@PathVariable String userId) {
+    public ApiResponse findRegistedKafkaServerList(@PathVariable String userId) {
         return ApiResponseFactory.createSuccess(adminServerService.findKafkaServer());
     }
 }

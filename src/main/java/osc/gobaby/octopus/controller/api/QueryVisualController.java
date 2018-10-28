@@ -8,6 +8,8 @@ import osc.gobaby.octopus.controller.api.vo.ApiResponseFactory;
 import osc.gobaby.octopus.service.query.visual.QueryVisualService;
 import osc.gobaby.octopus.service.query.visual.entity.NativeQuery;
 
+import java.security.Principal;
+
 /**
  * Created by ShinHyun.Kang on 2018. 9. 9..
  */
@@ -20,7 +22,7 @@ public class QueryVisualController {
 
     @ResponseBody
     @RequestMapping(value = "/{userId}/nativeQuery", method = RequestMethod.POST)
-    public ApiResponse nativeQuery(@PathVariable String userId, @RequestBody NativeQuery nativeQuery) {
-        return ApiResponseFactory.createSuccess(queryVisualService.reqeustNativeQuery(userId, nativeQuery.getNativeQuery()));
+    public ApiResponse nativeQuery(@PathVariable String userId, @RequestBody NativeQuery nativeQuery, Principal principal) {
+        return ApiResponseFactory.createSuccess(queryVisualService.reqeustNativeQuery(principal.getName(), nativeQuery.getNativeQuery()));
     }
 }

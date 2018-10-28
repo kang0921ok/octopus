@@ -1,10 +1,10 @@
 package osc.gobaby.octopus.exception;
 
-public class NoMandatoryKeyException extends Exception {
+public class NotMatchException extends Exception{
 
     private String key;
 
-    public NoMandatoryKeyException(String key) {
+    public NotMatchException(String key) {
         super();
         this.key = key;
     }
@@ -15,10 +15,5 @@ public class NoMandatoryKeyException extends Exception {
 
     public void setKey(String key) {
         this.key = key;
-    }
-
-    @Override
-    public String getMessage() {
-        return "No MandatoryKey : " + key;
     }
 }

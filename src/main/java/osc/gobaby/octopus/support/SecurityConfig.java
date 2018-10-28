@@ -22,8 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/css/**", "/resources/js/**", "/resources/image/**", "/",
-                        "/user/**", "/api/**/user/login", "/api/**/user/join", "/api/**/logstash").permitAll()
+                .antMatchers("/resources/css/**", "/resources/js/**", "/resources/image/**",
+                        "/", "/gate", "/user/**",
+                        "/api/**/dbConnect", "/api/**/user/login", "/api/**/user/join", "/api/**/logstash").permitAll()
                 .antMatchers("/dashboard/**").hasRole("USER")
                 .antMatchers("/api/v1.0/admin/server/druid/broker").hasRole("USER")
                 .antMatchers("/api/**/admin/**", "/dashboard/admin/**").hasRole("ADMIN")
@@ -33,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .cors()
                 .and()
-                .exceptionHandling().accessDeniedPage("/login")
+                .exceptionHandling().accessDeniedPage("/user/login")
                 .and()
                 .logout().logoutUrl("/user/logout").permitAll();
     }

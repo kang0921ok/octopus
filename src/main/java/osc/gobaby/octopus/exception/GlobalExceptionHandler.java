@@ -14,9 +14,9 @@ import java.sql.SQLException;
 public class GlobalExceptionHandler {
 
     @ResponseBody
-    @ExceptionHandler({NoMandatoryKeyException.class})
-    public ApiResponse sqlError(NoMandatoryKeyException e){
-        return ApiResponseFactory.createError(ApiResponseType.SQL_ERROR, e);
+    @ExceptionHandler({NotMatchException.class})
+    public ApiResponse notMatchException(NotMatchException e){
+        return ApiResponseFactory.createError(ApiResponseType.FAIL, e);
     }
 
     @ResponseBody
