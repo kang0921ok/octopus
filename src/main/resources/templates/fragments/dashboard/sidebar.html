@@ -16,8 +16,13 @@
 				</a>
 			</li>
 			<li class="nav-item nav-item-sub">
-				<a class="nav-link" href="/dashboard/query" th:classappend="${menu == 'query' ? 'active':''}">
-					<span data-feather="settings"></span> Query
+				<a class="nav-link" href="/dashboard/native_query" th:classappend="${menu == 'native_query' ? 'active':''}">
+					<span data-feather="settings"></span> Native Query
+				</a>
+			</li>
+			<li class="nav-item nav-item-sub">
+				<a class="nav-link" href="/dashboard/sql_query" th:classappend="${menu == 'sql_query' ? 'active':''}">
+					<span data-feather="settings"></span> SQL Query
 				</a>
 			</li>
 		</ul>

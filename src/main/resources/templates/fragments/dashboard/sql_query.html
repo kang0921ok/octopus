@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="_octopus-contents-container" th:fragment="contentFragment">
+	<div class="connection_unit">
+		<h1>Query Schema</h1>
+		<div class="form-group">
+			<label for="_octopus-query-schema-name" class="cols-sm-2 control-label">QUERY_SCHEMA_NAME</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-query-schema-name"
+						   placeholder="" readonly/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-dimension" class="cols-sm-2 control-label">Dimension</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-dimension"
+						   placeholder="" readonly/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="_octopus-metric" class="cols-sm-2 control-label">Metric</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<input type="text" class="form-control" id="_octopus-metric"
+						   placeholder="" readonly/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<h2 class="cols-sm-12 control-label">SQL Query</h2>
+		<label for="_octopus-druid-broker-url" class="cols-sm-12 control-label">Broker Url</label>
+		<div class="cols-sm-10">
+			<div class="input-group">
+				<input type="text" class="form-control" id="_octopus-druid-broker-url"
+					   placeholder="" readonly/>
+			</div>
+		</div>
+		<label for="_octopus-sql-query" class="cols-sm-2 control-label">SQL Query</label>
+		<div class="cols-sm-10">
+			<div class="input-group">
+				<textarea name="my-xml-editor" id="_octopus-sql-query" data-editor="sql" data-gutter="1" rows="10" style="width: 100%;"></textarea>
+			</div>
+
+			<div class="form-group ">
+				<button type="button" class="btn btn-primary btn-lg btn-block"
+						id="_octopus-query-request-btn">SQL Query</button>
+			</div>
+
+			<label for="_octopus-sql-query-result" class="cols-sm-2 control-label">SQL Query Result</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+				<textarea class="form-control" id="_octopus-sql-query-result"
+						  placeholder="" rows="30" cols="50"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/resources/js/sqlQuery.js"></script>
+</div>
+</html>
