@@ -22,16 +22,39 @@ public class QueryVisualConnector {
 
             HttpEntity entity = new HttpEntity(requestBody, headers);
 
-            ResponseEntity<String> respone = restTemplate.postForEntity(createDruidBrokerUrl(druidBrokerServer), entity, String.class);
+            ResponseEntity<String> response = restTemplate.postForEntity(createDruidBrokerNativeQueryUrl(druidBrokerServer), entity, String.class);
 
-            return respone.getBody();
+            return response.getBody();
         } catch (Exception e) {
             LOG.error(e);
             return "";
         }
     }
 
-    private String createDruidBrokerUrl(AdminServer druidBrokerServer) {
+    public String requestSqlQuery(AdminServer druidBrokerServer, String sqlQuery) {
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            String requestBody = "{\"query\":\"" + sqlQuery + "\"}";
+            HttpEntity entity = new HttpEntity(requestBody, headers);
+
+            ResponseEntity<String> response = restTemplate.postForEntity(createDruidBrokerSqlQueryUrl(druidBrokerServer), entity, String.class);
+
+            return response.getBody();
+        } catch (Exception e) {
+            LOG.error(e);
+            return "";
+        }
+    }
+
+    private String createDruidBrokerNativeQueryUrl(AdminServer druidBrokerServer) {
         return "http://" + druidBrokerServer.getIp() + ":" + druidBrokerServer.getPort() + "/druid/v2?pretty";
+    }
+
+    private String createDruidBrokerSqlQueryUrl(AdminServer druidBrokerServer) {
+        return "http://" + druidBrokerServer.getIp() + ":" + druidBrokerServer.getPort() + "/druid/v2/sql/";
     }
 }

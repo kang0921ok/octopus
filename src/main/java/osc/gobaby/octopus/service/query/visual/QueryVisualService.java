@@ -25,4 +25,16 @@ public class QueryVisualService {
 
         return queryVisualConnector.requestNativeQuery(druidBrokerServer, nativeQuery);
     }
+
+    public String reqeustSqlQuery(String userId, String sqlQuery){
+
+        AdminServer druidBrokerServer = adminServerService.findDruidBrokerServer();
+
+        return reqeustSqlQuery(druidBrokerServer, sqlQuery);
+    }
+
+    public String reqeustSqlQuery(AdminServer druidBrokerServer, String sqlQuery){
+
+        return queryVisualConnector.requestSqlQuery(druidBrokerServer, sqlQuery);
+    }
 }
